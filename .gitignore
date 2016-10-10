@@ -11,6 +11,8 @@ nbproject
 .buildpath
 .project
 .settings
+*.bkp
+
 
 # windows thumbnail cache
 Thumbs.db
