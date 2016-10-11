@@ -12,7 +12,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'country_id')->textInput() ?>
+    <?php // echo $form->field($model, 'country_id')->textInput() ?>
+    <?php echo $form->field($model, 'country_id')->dropDownList( $listData); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

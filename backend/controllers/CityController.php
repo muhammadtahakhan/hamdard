@@ -8,6 +8,8 @@ use backend\models\CitySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\Country;
+use yii\helpers\ArrayHelper;
 
 /**
  * CityController implements the CRUD actions for City model.
@@ -68,8 +70,13 @@ class CityController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->city_id]);
         } else {
+            //use app\models\Country;
+	$countries=Country::find()->all();
+	//use yii\helpers\ArrayHelper;
+	$listData=ArrayHelper::map($countries,'country_id','name');
             return $this->render('create', [
                 'model' => $model,
+                'listData'=>$listData
             ]);
         }
     }
