@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Qualification;
+use backend\models\Programs;
 
 /**
- * QualificationSearch represents the model behind the search form about `backend\models\Qualification`.
+ * ProgramsSearch represents the model behind the search form about `backend\models\Programs`.
  */
-class QualificationSearch extends Qualification
+class ProgramsSearch extends Programs
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class QualificationSearch extends Qualification
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'slug'], 'safe'],
+            [['program_id', 'last_update_by', 'created_by', 'lase_update_login'], 'integer'],
+            [['name', 'slug', 'enable_flag', 'last_update_date', 'creation_date'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class QualificationSearch extends Qualification
      */
     public function search($params)
     {
-        $query = Qualification::find();
+        $query = Programs::find();
 
         // add conditions that should always apply here
 
@@ -59,11 +59,17 @@ class QualificationSearch extends Qualification
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
+            'program_id' => $this->program_id,
+            'last_update_date' => $this->last_update_date,
+            'last_update_by' => $this->last_update_by,
+            'creation_date' => $this->creation_date,
+            'created_by' => $this->created_by,
+            'lase_update_login' => $this->lase_update_login,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'slug', $this->slug]);
+            ->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'enable_flag', $this->enable_flag]);
 
         return $dataProvider;
     }

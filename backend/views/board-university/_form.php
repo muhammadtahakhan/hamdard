@@ -16,6 +16,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'enable_flag')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'last_update_date')->textInput() ?>
+
+    <?= $form->field($model, 'last_updated_by')->textInput() ?>
+
+    <?= $form->field($model, 'creation_date')->textInput() ?>
+
+    <?= $form->field($model, 'created_by')->textInput() ?>
+
+    <?= $form->field($model, 'last_update_login')->textInput() ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

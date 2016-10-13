@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Nationality;
+use backend\models\TestCenters;
 
 /**
- * NationalitySearch represents the model behind the search form about `backend\models\Nationality`.
+ * TestCentersSearch represents the model behind the search form about `backend\models\TestCenters`.
  */
-class NationalitySearch extends Nationality
+class TestCentersSearch extends TestCenters
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class NationalitySearch extends Nationality
     public function rules()
     {
         return [
-            [['nationality_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
-            [['name', 'slug', 'enable_flag', 'last_update_date', 'creation_date'], 'safe'],
+            [['test_center_id', 'enable_flag', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
+            [['name', 'locaion', 'last_update_date', 'creation_date'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class NationalitySearch extends Nationality
      */
     public function search($params)
     {
-        $query = Nationality::find();
+        $query = TestCenters::find();
 
         // add conditions that should always apply here
 
@@ -59,7 +59,8 @@ class NationalitySearch extends Nationality
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'nationality_id' => $this->nationality_id,
+            'test_center_id' => $this->test_center_id,
+            'enable_flag' => $this->enable_flag,
             'last_update_date' => $this->last_update_date,
             'last_updated_by' => $this->last_updated_by,
             'creation_date' => $this->creation_date,
@@ -68,8 +69,7 @@ class NationalitySearch extends Nationality
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'enable_flag', $this->enable_flag]);
+            ->andFilterWhere(['like', 'locaion', $this->locaion]);
 
         return $dataProvider;
     }

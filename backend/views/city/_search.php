@@ -23,6 +23,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'slug') ?>
 
+    <?= $form->field($model, 'enable_flag') ?>
+
+    <?php // echo $form->field($model, 'last_update_date') ?>
+
+    <?php // echo $form->field($model, 'last_updated_by') ?>
+
+    <?php // echo $form->field($model, 'creation_date') ?>
+
+    <?php // echo $form->field($model, 'created_by') ?>
+
+    <?php // echo $form->field($model, 'last_update_login') ?>
+
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>

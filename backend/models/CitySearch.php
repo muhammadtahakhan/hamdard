@@ -18,8 +18,8 @@ class CitySearch extends City
     public function rules()
     {
         return [
-            [['city_id', 'country_id'], 'integer'],
-            [['name', 'slug'], 'safe'],
+            [['city_id', 'country_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
+            [['name', 'slug', 'enable_flag', 'last_update_date', 'creation_date'], 'safe'],
         ];
     }
 
@@ -61,10 +61,16 @@ class CitySearch extends City
         $query->andFilterWhere([
             'city_id' => $this->city_id,
             'country_id' => $this->country_id,
+            'last_update_date' => $this->last_update_date,
+            'last_updated_by' => $this->last_updated_by,
+            'creation_date' => $this->creation_date,
+            'created_by' => $this->created_by,
+            'last_update_login' => $this->last_update_login,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'slug', $this->slug]);
+            ->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'enable_flag', $this->enable_flag]);
 
         return $dataProvider;
     }

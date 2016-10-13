@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Nationality */
+/* @var $model backend\models\TestCenters */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="nationality-form">
+<div class="test-centers-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'locaion')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'enable_flag')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'enable_flag')->textInput() ?>
 
     <?= $form->field($model, 'last_update_date')->textInput() ?>
 

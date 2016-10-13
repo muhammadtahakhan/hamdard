@@ -4,22 +4,22 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\BoardUniversitySearch */
+/* @var $model backend\models\SessionSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="board-university-search">
+<div class="session-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'board_uni_id') ?>
+    <?= $form->field($model, 'session_id') ?>
 
     <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'slug') ?>
+    <?= $form->field($model, 'year') ?>
 
     <?= $form->field($model, 'enable_flag') ?>
 

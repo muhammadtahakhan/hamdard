@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\TestCenter;
-use backend\models\TestCenterSearch;
+use backend\models\ProgramOffer;
+use backend\models\ProgramOfferSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * TestCenterController implements the CRUD actions for TestCenter model.
+ * ProgramOfferController implements the CRUD actions for ProgramOffer model.
  */
-class TestCenterController extends Controller
+class ProgramOfferController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class TestCenterController extends Controller
     }
 
     /**
-     * Lists all TestCenter models.
+     * Lists all ProgramOffer models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TestCenterSearch();
+        $searchModel = new ProgramOfferSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class TestCenterController extends Controller
     }
 
     /**
-     * Displays a single TestCenter model.
+     * Displays a single ProgramOffer model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +57,16 @@ class TestCenterController extends Controller
     }
 
     /**
-     * Creates a new TestCenter model.
+     * Creates a new ProgramOffer model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new TestCenter();
+        $model = new ProgramOffer();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->offer_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +75,7 @@ class TestCenterController extends Controller
     }
 
     /**
-     * Updates an existing TestCenter model.
+     * Updates an existing ProgramOffer model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,7 +85,7 @@ class TestCenterController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->offer_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +94,7 @@ class TestCenterController extends Controller
     }
 
     /**
-     * Deletes an existing TestCenter model.
+     * Deletes an existing ProgramOffer model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class TestCenterController extends Controller
     }
 
     /**
-     * Finds the TestCenter model based on its primary key value.
+     * Finds the ProgramOffer model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return TestCenter the loaded model
+     * @return ProgramOffer the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = TestCenter::findOne($id)) !== null) {
+        if (($model = ProgramOffer::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

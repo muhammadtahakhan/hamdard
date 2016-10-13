@@ -18,8 +18,8 @@ class CountrySearch extends Country
     public function rules()
     {
         return [
-            [['country_id'], 'integer'],
-            [['name', 'slug'], 'safe'],
+            [['country_id', 'last_update_by', 'created_by', 'last_update_login'], 'integer'],
+            [['name', 'slug', 'enable_flag', 'last_update', 'creation_date'], 'safe'],
         ];
     }
 
@@ -60,10 +60,16 @@ class CountrySearch extends Country
         // grid filtering conditions
         $query->andFilterWhere([
             'country_id' => $this->country_id,
+            'last_update' => $this->last_update,
+            'last_update_by' => $this->last_update_by,
+            'creation_date' => $this->creation_date,
+            'created_by' => $this->created_by,
+            'last_update_login' => $this->last_update_login,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'slug', $this->slug]);
+            ->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'enable_flag', $this->enable_flag]);
 
         return $dataProvider;
     }

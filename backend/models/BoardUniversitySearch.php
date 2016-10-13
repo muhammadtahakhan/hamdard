@@ -18,8 +18,8 @@ class BoardUniversitySearch extends BoardUniversity
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'slug'], 'safe'],
+            [['board_uni_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
+            [['name', 'slug', 'enable_flag', 'last_update_date', 'creation_date'], 'safe'],
         ];
     }
 
@@ -59,11 +59,17 @@ class BoardUniversitySearch extends BoardUniversity
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
+            'board_uni_id' => $this->board_uni_id,
+            'last_update_date' => $this->last_update_date,
+            'last_updated_by' => $this->last_updated_by,
+            'creation_date' => $this->creation_date,
+            'created_by' => $this->created_by,
+            'last_update_login' => $this->last_update_login,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'slug', $this->slug]);
+            ->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'enable_flag', $this->enable_flag]);
 
         return $dataProvider;
     }

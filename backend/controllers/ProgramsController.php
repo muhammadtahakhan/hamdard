@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Qualification;
-use backend\models\QualificationSearch;
+use backend\models\Programs;
+use backend\models\ProgramsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * QualificationController implements the CRUD actions for Qualification model.
+ * ProgramsController implements the CRUD actions for Programs model.
  */
-class QualificationController extends Controller
+class ProgramsController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class QualificationController extends Controller
     }
 
     /**
-     * Lists all Qualification models.
+     * Lists all Programs models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new QualificationSearch();
+        $searchModel = new ProgramsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class QualificationController extends Controller
     }
 
     /**
-     * Displays a single Qualification model.
+     * Displays a single Programs model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +57,16 @@ class QualificationController extends Controller
     }
 
     /**
-     * Creates a new Qualification model.
+     * Creates a new Programs model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Qualification();
+        $model = new Programs();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->program_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +75,7 @@ class QualificationController extends Controller
     }
 
     /**
-     * Updates an existing Qualification model.
+     * Updates an existing Programs model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,7 +85,7 @@ class QualificationController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->program_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +94,7 @@ class QualificationController extends Controller
     }
 
     /**
-     * Deletes an existing Qualification model.
+     * Deletes an existing Programs model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class QualificationController extends Controller
     }
 
     /**
-     * Finds the Qualification model based on its primary key value.
+     * Finds the Programs model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Qualification the loaded model
+     * @return Programs the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Qualification::findOne($id)) !== null) {
+        if (($model = Programs::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -32,12 +32,6 @@
                 'items' => [
                     ['label' => 'Menu for admissions admin', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Qualifications', 'icon' => 'fa fa-building', 'url' => ['/qualification']],
-                     ['label' => 'Nationalities', 'icon' => 'fa fa-map-o', 'url' => ['/nationality']],
-                     ['label' => 'Test Centers', 'icon' => 'fa fa-map-o', 'url' => ['/test-center']],
-                    ['label' => 'Boards Or Universities', 'icon' => 'fa fa-map-o', 'url' => ['/board-university']],
-                    ['label' => 'Countries', 'icon' => 'fa fa-map-o', 'url' => ['/country']],
-                    ['label' => 'Cities', 'icon' => 'fa fa-map-o', 'url' => ['/city']],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [

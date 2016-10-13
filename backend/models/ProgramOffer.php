@@ -5,12 +5,13 @@ namespace backend\models;
 use Yii;
 
 /**
- * This is the model class for table "city".
+ * This is the model class for table "program_offer".
  *
- * @property integer $city_id
- * @property integer $country_id
- * @property string $name
- * @property string $slug
+ * @property integer $offer_id
+ * @property integer $program_id
+ * @property integer $session_id
+ * @property string $from_date
+ * @property string $to_date
  * @property string $enable_flag
  * @property string $last_update_date
  * @property integer $last_updated_by
@@ -18,14 +19,14 @@ use Yii;
  * @property integer $created_by
  * @property integer $last_update_login
  */
-class City extends \yii\db\ActiveRecord
+class ProgramOffer extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'city';
+        return 'program_offer';
     }
 
     /**
@@ -34,10 +35,9 @@ class City extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['country_id', 'name', 'slug', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
-            [['country_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
-            [['last_update_date', 'creation_date'], 'safe'],
-            [['name', 'slug'], 'string', 'max' => 20],
+            [['program_id', 'session_id', 'from_date', 'to_date', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
+            [['program_id', 'session_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
+            [['from_date', 'to_date', 'last_update_date', 'creation_date'], 'safe'],
             [['enable_flag'], 'string', 'max' => 2],
         ];
     }
@@ -48,10 +48,11 @@ class City extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'city_id' => Yii::t('app', 'City ID'),
-            'country_id' => Yii::t('app', 'Country ID'),
-            'name' => Yii::t('app', 'Name'),
-            'slug' => Yii::t('app', 'Slug'),
+            'offer_id' => Yii::t('app', 'Offer ID'),
+            'program_id' => Yii::t('app', 'Program ID'),
+            'session_id' => Yii::t('app', 'Session ID'),
+            'from_date' => Yii::t('app', 'From Date'),
+            'to_date' => Yii::t('app', 'To Date'),
             'enable_flag' => Yii::t('app', 'Enable Flag'),
             'last_update_date' => Yii::t('app', 'Last Update Date'),
             'last_updated_by' => Yii::t('app', 'Last Updated By'),

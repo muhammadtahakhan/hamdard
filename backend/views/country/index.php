@@ -27,6 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'country_id',
             'name',
             'slug',
+            'enable_flag',
+            'last_update',
+            // 'last_update_by',
+            // 'creation_date',
+            // 'created_by',
+            // 'last_update_login',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

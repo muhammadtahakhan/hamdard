@@ -5,26 +5,26 @@ namespace backend\models;
 use Yii;
 
 /**
- * This is the model class for table "country".
+ * This is the model class for table "session".
  *
- * @property integer $country_id
+ * @property integer $session_id
  * @property string $name
- * @property string $slug
+ * @property string $year
  * @property string $enable_flag
- * @property string $last_update
- * @property integer $last_update_by
+ * @property string $last_update_date
+ * @property integer $last_updated_by
  * @property string $creation_date
  * @property integer $created_by
  * @property integer $last_update_login
  */
-class Country extends \yii\db\ActiveRecord
+class Session extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'country';
+        return 'session';
     }
 
     /**
@@ -33,10 +33,10 @@ class Country extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'slug', 'last_update', 'last_update_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
-            [['last_update', 'creation_date'], 'safe'],
-            [['last_update_by', 'created_by', 'last_update_login'], 'integer'],
-            [['name', 'slug'], 'string', 'max' => 20],
+            [['name', 'year', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
+            [['year', 'last_update_date', 'creation_date'], 'safe'],
+            [['last_updated_by', 'created_by', 'last_update_login'], 'integer'],
+            [['name'], 'string', 'max' => 15],
             [['enable_flag'], 'string', 'max' => 2],
         ];
     }
@@ -47,12 +47,12 @@ class Country extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'country_id' => Yii::t('app', 'Country ID'),
+            'session_id' => Yii::t('app', 'Session ID'),
             'name' => Yii::t('app', 'Name'),
-            'slug' => Yii::t('app', 'Slug'),
+            'year' => Yii::t('app', 'Year'),
             'enable_flag' => Yii::t('app', 'Enable Flag'),
-            'last_update' => Yii::t('app', 'Last Update'),
-            'last_update_by' => Yii::t('app', 'Last Update By'),
+            'last_update_date' => Yii::t('app', 'Last Update Date'),
+            'last_updated_by' => Yii::t('app', 'Last Updated By'),
             'creation_date' => Yii::t('app', 'Creation Date'),
             'created_by' => Yii::t('app', 'Created By'),
             'last_update_login' => Yii::t('app', 'Last Update Login'),
