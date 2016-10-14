@@ -10,7 +10,7 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
-AppAsset::register($this);
+//  AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -20,63 +20,69 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+   
+    <script src="<?php echo Yii::getAlias('@web') ?>/form/plugins/jquery-2.1.4.min.js"></script>
+
+    <!-- bootstrap for better look example, but not necessary -->
+    <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/form/plugins/bootstrap/css/bootstrap.min.css" type="text/css" media="screen, projection">
+
+    <!-- Step Form Wizard plugin -->
+    <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/form/step-form-wizard/css/step-form-wizard-all.css" type="text/css" media="screen, projection">
+    <script src="<?php echo Yii::getAlias('@web') ?>/form/step-form-wizard/js/step-form-wizard.js"></script>
+
+    <!-- nicer scroll in steps -->
+    <link rel="stylesheet" href="<?php echo Yii::getAlias('@web') ?>/form/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.min.css">
+    <script src="<?php echo Yii::getAlias('@web') ?>/form/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    
+     <!-- validation library http://jqueryvalidation.org/ -->
+    <script src="<?php echo Yii::getAlias('@web') ?>/form/plugins/jquery-validation/jquery.validate.min.js"></script>
+    
+    <script>
+        var sfw;
+        $(document).ready(function () {
+            var form = $("#wizard_example");
+            form.validate();
+            sfw = $("#wizard_example").stepFormWizard({
+                height: 'auto',
+                onNext: function() {
+                    var valid = form.valid();
+                    // if use height: 'auto' call refresh metod after validation, because validation can change content
+                    sfw.refresh();
+                    return valid;
+                },
+                onFinish: function() {
+                    var valid = form.valid();
+                    // if use height: 'auto' call refresh metod after validation, because validation can change content
+                    sfw.refresh();
+                    console.log(valid);
+                    return valid;
+                }
+            });
+        })
+        $(window).load(function () {
+            /* only if you want use mcustom scrollbar */
+            $(".sf-step").mCustomScrollbar({
+                theme: "dark-3",
+                scrollButtons: {
+                    enable: true
+                }
+            });
+        });
+    
+    </script>
+
+    <style>
+        pre {margin: 45px 0 60px;}
+        h1 {margin: 60px 0 60px 0;}
+        p {margin-bottom: 10px;}
+        .error {color: #c7254e;}
+    </style>
 </head>
 <body>
-<?php $this->beginBody() ?>
+<?= $content ?>
+  
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-</div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
-
-<?php $this->endBody() ?>
 </body>
 </html>
-<?php $this->endPage() ?>
