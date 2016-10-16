@@ -76,6 +76,7 @@ use common\widgets\Alert;
         h1 {margin: 60px 0 60px 0;}
         p {margin-bottom: 10px;}
         .error {color: #c7254e;}
+        
     </style>
 </head>
 <body>

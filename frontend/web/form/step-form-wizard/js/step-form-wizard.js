@@ -8,15 +8,15 @@
 
     var nnn;
     var defaults = {
-        duration: 1000,
+        duration: 100,
         transition: 'slide',
         linkNav: true, // true, false, prev
         showNav: true, // true = top, false , right, bottom, left
         showNavNumbers: true,
         showButtons: true,
         showLegend: true,
-        nextBtn: $('<a class="next-btn sf-right sf-btn" href="#">NEXT</a>'),
-        prevBtn: $('<a class="prev-btn sf-left sf-btn" href="#">PREV</a>'),
+        nextBtn: $('<a class="next-btn sf-right sf-btn" href="#">NEXT STEP</a>'),
+        prevBtn: $('<a class="prev-btn sf-left sf-btn" href="#">PREV STEP</a>'),
         finishBtn: $('<input class="finish-btn sf-right sf-btn" type="submit" value="FINISH"/>'),
         onNext: function(from, data) {},
         onPrev: function(from, data) {},

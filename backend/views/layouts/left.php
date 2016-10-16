@@ -31,7 +31,14 @@
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
                     ['label' => 'Menu for admissions admin', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
+                    ['label' => 'Board Or University', 'icon' => 'fa fa-file-code-o', 'url' => ['/board-university']],
+                     ['label' => 'city', 'icon' => 'fa fa-file-code-o', 'url' => ['/city']],
+                     ['label' => 'country', 'icon' => 'fa fa-file-code-o', 'url' => ['/country']],
+                     ['label' => 'Nationalities', 'icon' => 'fa fa-file-code-o', 'url' => ['/nationality']],
+                     ['label' => 'Test Centers', 'icon' => 'fa fa-file-code-o', 'url' => ['/test-centers']],
+                     ['label' => 'Programs', 'icon' => 'fa fa-file-code-o', 'url' => ['/programs']],
+                    ['label' => 'Programs Offer', 'icon' => 'fa fa-dashboard', 'url' => ['/program-offer']],
+                    ['label' => 'Test Centers', 'icon' => 'fa fa-dashboard', 'url' => ['/test-center']],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
