@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'offer_id',
             'program_id',
             'session_id',
+            'year',
             'from_date',
             'to_date',
             'enable_flag',

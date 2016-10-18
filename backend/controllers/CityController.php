@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 /**
  * CityController implements the CRUD actions for City model.
  */
@@ -20,20 +21,20 @@ class CityController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['index', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'rules' => [
+//                    [
+//                        'actions' => ['login', 'error'],
+//                        'allow' => true,
+//                    ],
+//                    [
+////                        'actions' => ['index', 'index'],
+////                        'allow' => true,
+////                        'roles' => ['@'],
+//                    ],
+//                ],
+//            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -79,11 +80,21 @@ class CityController extends Controller
     {
         $model = new City();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            
+            $model->created_by=Yii::$app->user->id;
+            $model->creation_date=date("Y/m/d");
+            $model->last_updated_by=Yii::$app->user->id;
+            $model->last_update_date=date("Y/m/d");
+            $model->last_update_login=0;
+            $model->save();
+            
             return $this->redirect(['view', 'id' => $model->city_id]);
         } else {
+            $country=ArrayHelper::map(\backend\models\Country::find()->all(), 'country_id', 'name');
             return $this->render('create', [
-                'model' => $model,
+                            'model' => $model,
+                           'country'=>$country
             ]);
         }
     }
@@ -99,10 +110,20 @@ class CityController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+//           $model->created_by=Yii::$app->user->id;
+//            $model->creation_date=date("Y/m/d");
+            $model->last_updated_by=Yii::$app->user->id;
+            $model->last_update_date=date("Y/m/d");
+            $model->last_update_login=0;
+            $model->save();
+            
             return $this->redirect(['view', 'id' => $model->city_id]);
         } else {
+             $country=ArrayHelper::map(\backend\models\Country::find()->all(), 'country_id', 'name');
             return $this->render('update', [
                 'model' => $model,
+                'country'=>$country
             ]);
         }
     }

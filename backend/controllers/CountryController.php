@@ -21,20 +21,20 @@ class CountryController extends Controller
     public function behaviors()
     {
         return [
-             'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['index', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
+//             'access' => [
+//                'class' => AccessControl::className(),
+//                'rules' => [
+//                    [
+//                        'actions' => ['login', 'error'],
+//                        'allow' => true,
+//                    ],
+//                    [
+////                        'actions' => ['index', 'index'],
+////                        'allow' => true,
+////                        'roles' => ['@'],
+//                    ],
+//                ],
+//            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -80,7 +80,14 @@ class CountryController extends Controller
     {
         $model = new Country();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            
+             $model->created_by=Yii::$app->user->id;
+            $model->creation_date=date("Y/m/d");
+            $model->last_update_by=Yii::$app->user->id;
+            $model->last_update=date("Y/m/d");
+            $model->last_update_login=0;
+            $model->save();
             return $this->redirect(['view', 'id' => $model->country_id]);
         } else {
             return $this->render('create', [
@@ -99,7 +106,15 @@ class CountryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            
+//             
+//             $model->created_by=Yii::$app->user->id;
+//            $model->creation_date=date("Y/m/d");
+            $model->last_update_by=Yii::$app->user->id;
+            $model->last_update=date("Y/m/d");
+            $model->last_update_login=0;
+            $model->save();
             return $this->redirect(['view', 'id' => $model->country_id]);
         } else {
             return $this->render('update', [

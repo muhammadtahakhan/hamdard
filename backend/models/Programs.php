@@ -33,8 +33,8 @@ class Programs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'slug', 'last_update_date', 'last_update_by', 'creation_date', 'created_by', 'lase_update_login'], 'required'],
-            [['last_update_date', 'creation_date'], 'safe'],
+            [['name', 'slug', ], 'required'],
+            [['last_update_date', 'last_update_by', 'creation_date', 'created_by', 'lase_update_login'], 'safe'],
             [['last_update_by', 'created_by', 'lase_update_login'], 'integer'],
             [['name', 'slug'], 'string', 'max' => 20],
             [['enable_flag'], 'string', 'max' => 2],

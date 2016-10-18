@@ -33,8 +33,8 @@ class Country extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'slug', 'last_update', 'last_update_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
-            [['last_update', 'creation_date'], 'safe'],
+            [['name', 'slug'], 'required'],
+            [['last_update', 'last_update_by', 'creation_date', 'created_by', 'last_update_login'], 'safe'],
             [['last_update_by', 'created_by', 'last_update_login'], 'integer'],
             [['name', 'slug'], 'string', 'max' => 20],
             [['enable_flag'], 'string', 'max' => 2],

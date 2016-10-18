@@ -29,7 +29,7 @@ class TestCentersController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index', 'index'],
+                       'actions' => ['index', 'create', 'view', 'update', 'delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -80,7 +80,15 @@ class TestCentersController extends Controller
     {
         $model = new TestCenters();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            
+              
+            $model->created_by=Yii::$app->user->id;
+            $model->creation_date=date("Y/m/d");
+            $model->last_updated_by=Yii::$app->user->id;
+            $model->last_update_date=date("Y/m/d");
+            $model->last_update_login=0;
+            $model->save();
             return $this->redirect(['view', 'id' => $model->test_center_id]);
         } else {
             return $this->render('create', [

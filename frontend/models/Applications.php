@@ -21,7 +21,7 @@ use Yii;
  * @property integer $city
  * @property string $f_name
  * @property string $f_nic
- * @property string $f_dob
+ * @property string $f_occupation
  * @property string $f_email
  * @property string $f_mobile
  * @property string $f_phone
@@ -45,6 +45,17 @@ use Yii;
  */
 class Applications extends \yii\db\ActiveRecord
 {
+    
+    public $qualification;
+    public $subject;
+    public $passing_year;
+    public $attempt;
+    public $total_marks;
+    public $obtained;
+    public $percentage;
+    public $boarduni;
+    
+    public $preferance;
     /**
      * @inheritdoc
      */
@@ -52,15 +63,15 @@ class Applications extends \yii\db\ActiveRecord
     {
         return 'applications';
     }
-
+       
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'nic', 'dob', 'email', 'mobile', 'phone', 'nationality', 'gender', 'address', 'country', 'city', 'f_name', 'f_nic', 'f_dob', 'f_email', 'f_mobile', 'f_phone', 'f_nationality', 'f_current_address', 'f_country', 'f_city', 'campus', 'test_center', 'student_type', 'f_income', 'f_perminant_Address', 'hostal_flag', 'last_updated_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login', 'print_id'], 'required'],
-            [['dob', 'f_dob', 'last_updated_date', 'creation_date'], 'safe'],
+            [['name', 'nic', 'dob', 'email', 'mobile', 'phone', 'nationality', 'gender', 'address', 'country', 'city', 'f_name', 'f_nic', 'f_occupation', 'f_email', 'f_mobile', 'f_phone', 'f_nationality', 'f_current_address', 'f_country', 'f_city', 'campus', 'test_center', 'student_type', 'f_income', 'f_perminant_Address', 'hostal_flag', 'last_updated_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login', 'print_id'], 'required'],
+            [['dob', 'last_updated_date', 'creation_date', 'qualification' , 'subject', 'passing_year', 'attempt', 'total_marks', 'obtained', 'percentage', 'boarduni', 'preferance'], 'safe'],
             [['country', 'city', 'f_country', 'f_city', 'test_center', 'f_income', 'hostal_flag', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
             [['name', 'nic', 'email', 'mobile', 'phone', 'nationality', 'f_name', 'f_nic', 'f_email', 'f_mobile', 'f_phone', 'f_nationality', 'campus', 'student_type'], 'string', 'max' => 20],
             [['gender'], 'string', 'max' => 8],
@@ -79,7 +90,7 @@ class Applications extends \yii\db\ActiveRecord
             'application_id' => Yii::t('app', 'Application ID'),
             'name' => Yii::t('app', 'Name'),
             'nic' => Yii::t('app', 'Nic'),
-            'dob' => Yii::t('app', 'Dob'),
+            'dob' => Yii::t('app', 'Date of Birth'),
             'email' => Yii::t('app', 'Email'),
             'mobile' => Yii::t('app', 'Mobile'),
             'phone' => Yii::t('app', 'Phone'),
@@ -88,22 +99,22 @@ class Applications extends \yii\db\ActiveRecord
             'address' => Yii::t('app', 'Address'),
             'country' => Yii::t('app', 'Country'),
             'city' => Yii::t('app', 'City'),
-            'f_name' => Yii::t('app', 'F Name'),
-            'f_nic' => Yii::t('app', 'F Nic'),
-            'f_dob' => Yii::t('app', 'F Dob'),
-            'f_email' => Yii::t('app', 'F Email'),
-            'f_mobile' => Yii::t('app', 'F Mobile'),
-            'f_phone' => Yii::t('app', 'F Phone'),
-            'f_nationality' => Yii::t('app', 'F Nationality'),
-            'f_current_address' => Yii::t('app', 'F Current Address'),
-            'f_country' => Yii::t('app', 'F Country'),
-            'f_city' => Yii::t('app', 'F City'),
-            'campus' => Yii::t('app', 'Campus'),
-            'test_center' => Yii::t('app', 'Test Center'),
-            'student_type' => Yii::t('app', 'Student Type'),
-            'f_income' => Yii::t('app', 'F Income'),
-            'f_perminant_Address' => Yii::t('app', 'F Perminant  Address'),
-            'hostal_flag' => Yii::t('app', 'Hostal Flag'),
+            'f_name' => Yii::t('app', " Name"),
+            'f_nic' => Yii::t('app', " Nic"),
+            'f_occupation' => Yii::t('app', 'Occupation'),
+            'f_email' => Yii::t('app', " Email"),
+            'f_mobile' => Yii::t('app', " Mobile"),
+            'f_phone' => Yii::t('app', " Phone"),
+            'f_nationality' => Yii::t('app', "Nationality"),
+            'f_current_address' => Yii::t('app', "Current Address"),
+            'f_country' => Yii::t('app', "Country"),
+            'f_city' => Yii::t('app', "City"),
+            'campus' => Yii::t('app', 'The Campus Applied for'),
+            'test_center' => Yii::t('app', 'Test Center for Biological Sciences:'),
+            'student_type' => Yii::t('app', 'Please tick the applicable box:'),
+            'f_income' => Yii::t('app', "Father's\Guardian's Income"),
+            'f_perminant_Address' => Yii::t('app', 'Permanent  Address'),
+            'hostal_flag' => Yii::t('app', 'Do you require accommodation? '),
             'enable_flag' => Yii::t('app', 'Enable Flag'),
             'last_updated_date' => Yii::t('app', 'Last Updated Date'),
             'last_updated_by' => Yii::t('app', 'Last Updated By'),

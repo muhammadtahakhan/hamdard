@@ -33,8 +33,8 @@ class Nationality extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'slug', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
-            [['last_update_date', 'creation_date'], 'safe'],
+            [['name', 'slug'], 'required'],
+            [['last_updated_by', 'creation_date', 'created_by', 'last_update_login', 'last_update_date', 'creation_date'], 'safe'],
             [['last_updated_by', 'created_by', 'last_update_login'], 'integer'],
             [['name', 'slug'], 'string', 'max' => 20],
             [['enable_flag'], 'string', 'max' => 2],

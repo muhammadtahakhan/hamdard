@@ -8,7 +8,19 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-
+<?php
+//                                      foreach ($preferance as $mypre){
+////                                          <!--print_r($mypre->offer_id)."<br />";-->
+//                                       $mypre = \backend\models\Programs::find()->where(['program_id'=>$mypre->program_id])->one();
+//                                       echo "<pre>";
+//                                       print_r($mypre);
+//                                       echo "</pre>";
+//                                           echo"<option value='$mypre->program_id'>$mypre->name</option>" ;
+//                                           
+//                                       
+//                                          
+//                                      } 
+                                      ?>
 
   <div class="container">
     <div class="site-index">
@@ -16,7 +28,8 @@ use yii\widgets\ActiveForm;
 
             <div class="row">
                 <div class="col-md-12">
-                    <br /><br /><br /><br />
+                    <br /><br />
+                  
 <!--                    <div class="jumbotron">
                         <h1>Height options</h1>
                         <img src="<?php echo Yii::getAlias('@web') ?>/form/header.jpg" />
@@ -27,30 +40,72 @@ use yii\widgets\ActiveForm;
                         </p>
                     </div>-->
 
-                    <form id="wizard_example" action="">
-                          <fieldset>
+                    <!--<form id="wizard_example" action="">-->
+                         <?php $form = ActiveForm::begin([
+                             'id'=>'wizard_example'
+                         ]); ?>
+                        <fieldset>
                             <legend>Applicant's Info</legend>
                             <div class="row">
                                 <div class="col-lg-6">
-                                   
-                                     <div class="form-group">
+<!--                                   <div class="form-group">  Date input 
+                                        <label class="control-label" for="date">Date</label>
+                                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                                      </div>-->
+<!--                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Name</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               name="exampleInputEmail1" placeholder="Enter email">
-                                     </div>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" placeholder="Enter email">
+                                        
+                                     </div>-->
                                       
-                                    <div class="form-group">
+                                      <?= $form->field($model, 'name', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(array('placeholder' => 'Enter Name'));  ?>
+
+                                      <?= $form->field($model, 'nic', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(array('placeholder' => 'Enter NIC'));  ?>
+
+                                     <?= $form->field($model, 'dob', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(array('placeholder' => 'Enter Date of Birth', 'id'=>'date'));  ?>
+
+                                        
+
+                                     <?= $form->field($model, 'email', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => 'Enter Email address']);  ?>
+
+                                     <?= $form->field($model, 'mobile', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(array('placeholder' => 'Enter Mobile Number'));  ?>
+
+                                         <?= $form->field($model, 'phone', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(array('placeholder' => 'Enter Phone Number'));  ?>
+
+<!--                                    <div class="form-group">
                                         <label for="exampleInputEmail1">date of birth</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               name="exampleInputEmail1" placeholder="Enter email">
+                                        <input type="date" class="form-control" id="date"
+                                               name="exampleInputEmail1" placeholder="Enter email" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">cnic</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1"
                                                name="exampleInputEmail1" placeholder="Enter email">
                                     </div>
-                                   
-                                   
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Email</label>
                                         <input type="password" class="form-control" id="exampleInputPassword1"
@@ -67,191 +122,46 @@ use yii\widgets\ActiveForm;
                                         <label for="exampleInputPassword1">Mobile</label>
                                         <input type="password" class="form-control" id="exampleInputPasswordAgain1"
                                                name="exampleInputPasswordAgain1" placeholder="Password">
-                                    </div>
-                                    
-<!--                                      <div class="form-group">
-                                        <label for="exampleInputPassword1">Country</label>
-                                          <select class="form-control" name="favoriteNumber">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                    
-                                      <div class="form-group">
-                                        <label for="exampleInputPassword1">City</label>
-                                         <select class="form-control" name="favoriteNumber">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                    
-                                    
-                                      <div class="form-group">
-                                        <label for="exampleInputPassword1">Address</label>
-                                        <input type="password" class="form-control" id="exampleInputPasswordAgain1"
-                                               name="exampleInputPasswordAgain1" placeholder="Password">
                                     </div>-->
+                                    
+
  
                                     
                                 </div>
                                   <div class="col-lg-6">
-                                   
-<!--                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Name</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               name="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Gender</label>
-                                         <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" value="option1" checked>
-                                                Male
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" value="option1">
-                                                   Female
-                                                </label>
-                                            </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">date of birth</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               name="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">cnic</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               name="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Nationality</label>
-                                          <select class="form-control" name="favoriteNumber">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               name="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Email</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1"
-                                               name="exampleInputPassword1" placeholder="Password" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Phone</label>
-                                        <input type="password" class="form-control" id="exampleInputPasswordAgain1"
-                                               name="exampleInputPasswordAgain1" placeholder="Password">
-                                    </div>
-                                    
-                                      <div class="form-group">
-                                        <label for="exampleInputPassword1">Phone</label>
-                                        <input type="password" class="form-control" id="exampleInputPasswordAgain1"
-                                               name="exampleInputPasswordAgain1" placeholder="Password">
-                                    </div>
-                                    
-                                      <div class="form-group">
-                                        <label for="exampleInputPassword1">Mobile</label>
-                                        <input type="password" class="form-control" id="exampleInputPasswordAgain1"
-                                               name="exampleInputPasswordAgain1" placeholder="Password">
-                                    </div>-->
-                                      <div class="form-group">
-                                        <label for="exampleInputEmail1">Gender</label>
-                                         <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" value="option1" checked>
-                                                Male
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" value="option1">
-                                                   Female
-                                                </label>
-                                            </div>
-                                    </div>
-                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Nationality</label>
-                                          <select class="form-control" name="favoriteNumber">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                      <div class="form-group">
-                                        <label for="exampleInputPassword1">Country</label>
-                                          <select class="form-control" name="favoriteNumber">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                    
-                                      <div class="form-group">
-                                        <label for="exampleInputPassword1">City</label>
-                                         <select class="form-control" name="favoriteNumber">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                    
-                                    
-                                      <div class="form-group">
-                                        <label for="exampleInputPassword1">Address</label>
-                                        <input type="password" class="form-control" id="exampleInputPasswordAgain1"
-                                               name="exampleInputPasswordAgain1" placeholder="Password">
-                                    </div>
+                                     
+                                      
+                                      <?= $form->field($model, 'gender', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->radioList(array('male'=>'Male','female'=>'Female'))  ?>
+                                      
+                                      <?= $form->field($model, 'nationality', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($nationality,  ['prompt'=>'Choose...']); ?>
+                                      
+                                      
+                                      <?= $form->field($model, 'country', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($country, ['prompt'=>'Choose...']); ?>
+                                      
+                                      <?= $form->field($model, 'city', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($city, ['prompt'=>'Choose...']);  ?>
+                                      
+                                       
+                                      <?= $form->field($model, 'address', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(array('placeholder' => 'Enter Address'));  ?>
  
                                     
                                 </div>
@@ -265,8 +175,55 @@ use yii\widgets\ActiveForm;
                                 <div class="col-lg-6">
                                    
                                     
+                                      <?= $form->field($model, 'f_name', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => "Father\Guardian's Name"])  ?>
                                     
-                                      <div class="form-group">
+                                    
+                                      <?= $form->field($model, 'f_nic', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => "Father\Guardian's NIC"])  ?>
+                                    
+                                    <?= $form->field($model, 'f_email', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => "Father\Guardian's Email"])  ?>
+                                    
+                                      <?= $form->field($model, 'f_phone', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => "Father\Guardian's Phone"]) ?>
+                                    
+                                    
+                                    
+                                      <?= $form->field($model, 'f_mobile', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => "Father\Guardian's Mobile"]) ?>
+                                    
+                                    
+                                      <?= $form->field($model, 'f_phone', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => "Father\Guardian's Mobile"]) ?>
+                                    
+                                    
+                                    <?= $form->field($model, 'f_occupation', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => "Father\Guardian's Occupation"])  ?>
+                                    
+                                    
+<!--                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Name</label>
                                         <input type="password" class="form-control" id="exampleInputPasswordAgain1"
                                                name="exampleInputPasswordAgain1" placeholder="Password">
@@ -276,7 +233,6 @@ use yii\widgets\ActiveForm;
                                         <input type="password" class="form-control" id="exampleInputPasswordAgain1"
                                                name="exampleInputPasswordAgain1" placeholder="Password">
                                     </div>
-                                    
                                      <div class="form-group">
                                         <label for="exampleInputPassword1">Email</label>
                                         <input type="password" class="form-control" id="exampleInputPasswordAgain1"
@@ -292,22 +248,49 @@ use yii\widgets\ActiveForm;
                                         <input type="password" class="form-control" id="exampleInputPasswordAgain1"
                                                name="exampleInputPasswordAgain1" placeholder="Password">
                                     </div>
-                                    
-                                    <div class="form-group">
+                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Occupation</label>
                                         <input type="password" class="form-control" id="exampleInputPasswordAgain1"
                                                name="exampleInputPasswordAgain1" placeholder="Password">
-                                    </div>  
+                                    </div>  -->
  
                                 </div>
                                 <div class="col-lg-6">
+                                    
+                                     <?= $form->field($model, 'f_income', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => "Father\Guardian's Occupation"])  ?>
+                                    
+                                      
+                                      <?= $form->field($model, 'f_country', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($country, ['prompt'=>'Choose...']); ?>
+                                      
+                                      <?= $form->field($model, 'f_city', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($city, ['prompt'=>'Choose...']);  ?>
+                                    
                                    
-                                  <div class="form-group">
+                                    
+                                     <?= $form->field($model, 'f_perminant_Address', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(['placeholder' => "Father\Guardian's Address"])  ?>
+                                    
+                                    
+<!--                                   
+                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Monthly Income</label>
                                         <input type="password" class="form-control" id="exampleInputPasswordAgain1"
                                                name="exampleInputPasswordAgain1" placeholder="Password">
                                     </div>
-                                    
                                      <div class="form-group">
                                         <label for="exampleInputPassword1">Country</label>
                                          <select class="form-control" name="favoriteNumber">
@@ -347,19 +330,18 @@ use yii\widgets\ActiveForm;
                                         <label for="exampleInputPassword1">Current Address</label>
                                         <input type="password" class="form-control" id="exampleInputPasswordAgain1"
                                                name="exampleInputPasswordAgain1" placeholder="Password">
-                                    </div>
+                                    </div>-->
                                         
  
                                 </div>
                           
                             </div>
                         </fieldset>
-                      
                         <fieldset>
                             <legend>Academic Records</legend>
                             <div class="row">
                                 <div class="table-responsive col-lg-12">
-        <table class="table table-bordered">
+                             <table class="table table-bordered">
             <thead>
                 <th>Qualification</th>
                 <th>Subject</th>
@@ -375,59 +357,75 @@ use yii\widgets\ActiveForm;
                
                 <tr>
                     <td> 
-                        <select class="form-control">
-                            <option>Monthly</option>
-                            <option>Yearly</option>
+                        <select class="form-control" name="Applications[qualification][]">
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
                         </select>
                     </td>
-                    <td><input type="text" class="form-control" value=""/></td>
-                    <td> <select class="form-control">
-                            <option>2001</option>
-                             <option>2001</option>
-                              <option>2001</option> <option>2001</option> <option>2001</option>
-                               <option>2001</option>
-                                <option>2001</option>
-                                 <option>2001</option>
-                                  <option>2001</option>
-                                   <option>2001</option>
-                                    <option>2001</option>
-                                      <option>2001</option>
-                                        <option>2001</option>  <option>2001</option>
-                                          <option>2001</option>
-                                            <option>2001</option>  <option>2001</option>
-                                              <option>2001</option>
-                                                <option>2001</option>
-                                                  <option>2001</option>
-                                                    <option>2001</option>
-                                                      <option>2001</option>
-                                                        <option>2001</option>
-                                            
-                                        
-                            
-                        </select></td>
                     <td>
-                        <select class="form-control">
-                            <option>1</option>
-                             <option>2</option>
-                              <option>3</option>
-                               <option>4</option>
-                            <option>5</option>
-                        </select>
+                        <input type="text" class="form-control" name="Applications[subject][]" value=""/>
                     </td>
-                    <td><input type="text" class="form-control" value=""/></td>
-                    <td><input type="text" class="form-control" value=""/></td>
-                    <td><input type="text" class="form-control" value=""/></td>
                     <td> 
-                        <select class="form-control">
-                            <option>Monthly</option>
-                            <option>Yearly</option>
+                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value=""/>
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="text" class="form-control" value=""/></td>
+                   <td><input name="Applications[obtained][]" type="text" class="form-control" value=""/></td>
+                   <td><input name="Applications[percentage][]" type="text" class="form-control" value=""/></td>
+                                                <td> 
+                                                    <select class="form-control" name="Applications[boarduni][]">
+                                                        <option>Monthly</option>
+                                                        <option>Yearly</option>
+                                                    </select>
+                                                </td>
+
+                                            </tr>
+                                            
+                 <tr>
+                    <td> 
+                        <select class="form-control" name="Applications[qualification][]">
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
                         </select>
                     </td>
-                    
-                </tr>
-                
-            </tbody>
-        </table>
+                    <td>
+                        <input type="text" class="form-control" name="Applications[subject][]" value=""/>
+                    </td>
+                    <td> 
+                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value=""/>
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="text" class="form-control" value=""/></td>
+                   <td><input name="Applications[obtained][]" type="text" class="form-control" value=""/></td>
+                   <td><input name="Applications[percentage][]" type="text" class="form-control" value=""/></td>
+                                                <td> 
+                                                    <select class="form-control" name="Applications[boarduni][]">
+                                                        <option>Monthly</option>
+                                                        <option>Yearly</option>
+                                                    </select>
+                                                </td>
+
+                                            </tr>                            
+                                         
+
+                                        </tbody>
+                                    </table>
     </div>
 <!--                                <noscript>
                                     <input class="nocsript-finish-btn sf-right nocsript-sf-btn" type="submit"
@@ -439,35 +437,203 @@ use yii\widgets\ActiveForm;
                             <legend>Preference Details</legend>
                             <div class="row">
                                 <div class="col-lg-6">
+                                    <!--Applications[campus]-->
+                                    
                                      <div class="form-group">
-                                        <label for="exampleInputEmail1">Gender</label>
-                                         <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" value="option1" checked>
-                                                Male
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" value="option1">
-                                                   Female
-                                                </label>
-                                            </div>
+                                        <label for="exampleInputEmail1">First Preferance</label>
+                                        <select class="form-control" name="Applications[preferance][]">
+                                   <?php
+                                      foreach ($preferance as $mypre){
+//                                          <!--print_r($mypre->offer_id)."<br />";-->
+                                       $mypre = \backend\models\Programs::find()->where(['program_id'=>$mypre->program_id])->one();
+//                                       echo "<pre>";
+//                                       print_r($mypre);
+//                                       echo "</pre>";
+                                           echo"<option value='$mypre->program_id'>$mypre->name</option>" ;
+                                           
+                                       
+                                          
+                                      } 
+                                      ?>
+
+                                     </select>
                                     </div>
+                                    
+                                     
+                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">First Preferance</label>
+                                        <select class="form-control" name="Applications[preferance][]">
+                                   <?php
+                                      foreach ($preferance as $mypre){
+//                                          <!--print_r($mypre->offer_id)."<br />";-->
+                                       $mypre = \backend\models\Programs::find()->where(['program_id'=>$mypre->program_id])->one();
+//                                       echo "<pre>";
+//                                       print_r($mypre);
+//                                       echo "</pre>";
+                                           echo"<option value='$mypre->program_id'>$mypre->name</option>" ;
+                                           
+                                       
+                                          
+                                      } 
+                                      ?>
+
+                                     </select>
+                                    </div>
+                                    
+                                     
+                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">First Preferance</label>
+                                        <select class="form-control" name="Applications[preferance][]">
+                                   <?php
+                                      foreach ($preferance as $mypre){
+//                                          <!--print_r($mypre->offer_id)."<br />";-->
+                                       $mypre = \backend\models\Programs::find()->where(['program_id'=>$mypre->program_id])->one();
+//                                       echo "<pre>";
+//                                       print_r($mypre);
+//                                       echo "</pre>";
+                                           echo"<option value='$mypre->program_id'>$mypre->name</option>" ;
+                                           
+                                       
+                                          
+                                      } 
+                                      ?>
+
+                                     </select>
+                                    </div>
+                                    
+                                     
+                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">First Preferance</label>
+                                        <select class="form-control" name="Applications[preferance][]">
+                                   <?php
+                                      foreach ($preferance as $mypre){
+//                                          <!--print_r($mypre->offer_id)."<br />";-->
+                                       $mypre = \backend\models\Programs::find()->where(['program_id'=>$mypre->program_id])->one();
+//                                       echo "<pre>";
+//                                       print_r($mypre);
+//                                       echo "</pre>";
+                                           echo"<option value='$mypre->program_id'>$mypre->name</option>" ;
+                                           
+                                       
+                                          
+                                      } 
+                                      ?>
+
+                                     </select>
+                                    </div>
+                                    
+                                     
+                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">First Preferance</label>
+                                        <select class="form-control" name="Applications[preferance][]">
+                                   <?php
+                                      foreach ($preferance as $mypre){
+//                                          <!--print_r($mypre->offer_id)."<br />";-->
+                                       $mypre = \backend\models\Programs::find()->where(['program_id'=>$mypre->program_id])->one();
+//                                       echo "<pre>";
+//                                       print_r($mypre);
+//                                       echo "</pre>";
+                                           echo"<option value='$mypre->program_id'>$mypre->name</option>" ;
+                                           
+                                       
+                                          
+                                      } 
+                                      ?>
+
+                                     </select>
+                                    </div>
+                                   
+<!--                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">First Preferance</label>
+                                        <select class="form-control" name="Applications[preferance][]">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">second Preferance</label>
+                                          <select class="form-control" name="Applications[preferance][]">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">Third Preferance</label>
+                                          <select class="form-control" name="Applications[preferance][]">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">Fourth Preferance</label>
+                                          <select class="form-control" name="Applications[preferance][]">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">fifth Preferance</label>
+                                          <select class="form-control" name="Applications[preferance][]">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>-->
                                 </div>
                                 
                                 <div class="col-lg-6">
+                                    
+                                    
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">Tick the Campus Applied for: </label>
                                          <div class="radio">
                                             <label>
-                                                <input type="radio" name="applied_for" value="option1" checked>
+                                                <input type="radio" name="Applications[campus]" value="option1" checked>
                                                 Karachi
                                             </label>
                                         </div>
                                         <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="applied_for" value="option1">
+                                                    <input type="radio" name="Applications[campus]" value="option2">
                                                  Islamabad
                                                 </label>
                                             </div>
@@ -476,13 +642,13 @@ use yii\widgets\ActiveForm;
                                         <label for="exampleInputEmail1">Do you require accommodation? </label>
                                          <div class="radio">
                                             <label>
-                                                <input type="radio" name="accomodation" value="option1" checked>
+                                                <input type="radio" name="Applications[hostal_flag]" value="Y" checked>
                                                 Yes
                                             </label>
                                         </div>
                                         <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="accomodation" value="option1">
+                                                    <input type="radio" name="Applications[hostal_flag]" value="N">
                                                 No
                                                 </label>
                                             </div>
@@ -491,19 +657,19 @@ use yii\widgets\ActiveForm;
                                         <label for="exampleInputEmail1">Please tick the applicable box: </label>
                                          <div class="radio">
                                             <label>
-                                                <input type="radio" name="s_type" value="option1" checked>
+                                                <input type="radio" name="Applications[student_type]" value="0" checked>
                                               Local Student
                                             </label>
                                         </div>
                                         <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="s_type" value="option1">
+                                                    <input type="radio" name="Applications[student_type]" value="1">
                                                   Foreign Student
                                                 </label>
                                             </div>
                                         <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="s_type" value="option1">
+                                                    <input type="radio" name="Applications[student_type]" value="2">
                                                   Overseas Pakistani 
                                                 </label>
                                             </div>
@@ -512,20 +678,20 @@ use yii\widgets\ActiveForm;
                                         <label for="exampleInputEmail1">Test Center for Biological Sciences : </label>
                                          <div class="radio">
                                             <label>
-                                                <input type="radio" name="s_type" value="option1" checked>
-                                              Local Student
+                                                <input type="radio" name="Applications[test_center]" value="0" checked>
+                                              Karachi
                                             </label>
                                         </div>
                                         <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="s_type" value="option1">
-                                                  Foreign Student
+                                                    <input type="radio" name="Applications[test_center]" value="1">
+                                                  Islamabad
                                                 </label>
                                             </div>
                                         <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="s_type" value="option1">
-                                                  Overseas Pakistani 
+                                                    <input type="radio" name="Applications[test_center]" value="2">
+                                                 Blochistan
                                                 </label>
                                             </div>
                                     </div>
@@ -538,6 +704,7 @@ use yii\widgets\ActiveForm;
                             </div>
                         </fieldset>
                     </form>
+                     //<?php ActiveForm::end(); ?>
                 </div>
             </div>
            
@@ -587,7 +754,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'f_nic')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'f_dob')->textInput() ?>
+    <?= $form->field($model, 'f_occupation')->textInput() ?>
 
     <?= $form->field($model, 'f_email')->textInput(['maxlength' => true]) ?>
 

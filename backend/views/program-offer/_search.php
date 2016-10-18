@@ -21,9 +21,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'session_id') ?>
 
+    <?= $form->field($model, 'year') ?>
+
     <?= $form->field($model, 'from_date') ?>
 
-    <?= $form->field($model, 'to_date') ?>
+    <?php // echo $form->field($model, 'to_date') ?>
 
     <?php // echo $form->field($model, 'enable_flag') ?>
 

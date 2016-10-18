@@ -60,7 +60,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $totalapplications = \frontend\models\Applications::find()->count();
+        return $this->render('index', [
+             'totalapplications' => $totalapplications
+        ]);
     }
 
     /**

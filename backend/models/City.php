@@ -34,9 +34,9 @@ class City extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['country_id', 'name', 'slug', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
+            [['country_id', 'name', 'slug'], 'required'],
             [['country_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
-            [['last_update_date', 'creation_date'], 'safe'],
+            [['last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'safe'],
             [['name', 'slug'], 'string', 'max' => 20],
             [['enable_flag'], 'string', 'max' => 2],
         ];

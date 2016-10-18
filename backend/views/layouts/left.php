@@ -36,9 +36,10 @@
                      ['label' => 'country', 'icon' => 'fa fa-file-code-o', 'url' => ['/country']],
                      ['label' => 'Nationalities', 'icon' => 'fa fa-file-code-o', 'url' => ['/nationality']],
                      ['label' => 'Test Centers', 'icon' => 'fa fa-file-code-o', 'url' => ['/test-centers']],
+                    ['label' => 'Sessions', 'icon' => 'fa fa-file-code-o', 'url' => ['/session']],
                      ['label' => 'Programs', 'icon' => 'fa fa-file-code-o', 'url' => ['/programs']],
                     ['label' => 'Programs Offer', 'icon' => 'fa fa-dashboard', 'url' => ['/program-offer']],
-                    ['label' => 'Test Centers', 'icon' => 'fa fa-dashboard', 'url' => ['/test-center']],
+                    ['label' => 'Test Centers', 'icon' => 'fa fa-dashboard', 'url' => ['/test-centers']],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [

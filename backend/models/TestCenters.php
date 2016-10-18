@@ -33,7 +33,7 @@ class TestCenters extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'locaion', 'enable_flag', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
+            [['name', 'locaion'], 'required'],
             [['enable_flag', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
             [['last_update_date', 'creation_date'], 'safe'],
             [['name'], 'string', 'max' => 30],

@@ -19,7 +19,7 @@ class ProgramOfferSearch extends ProgramOffer
     {
         return [
             [['offer_id', 'program_id', 'session_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
-            [['from_date', 'to_date', 'enable_flag', 'last_update_date', 'creation_date'], 'safe'],
+            [['year', 'from_date', 'to_date', 'enable_flag', 'last_update_date', 'creation_date'], 'safe'],
         ];
     }
 
@@ -62,6 +62,7 @@ class ProgramOfferSearch extends ProgramOffer
             'offer_id' => $this->offer_id,
             'program_id' => $this->program_id,
             'session_id' => $this->session_id,
+            'year' => $this->year,
             'from_date' => $this->from_date,
             'to_date' => $this->to_date,
             'last_update_date' => $this->last_update_date,

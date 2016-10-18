@@ -10,6 +10,7 @@ use Yii;
  * @property integer $offer_id
  * @property integer $program_id
  * @property integer $session_id
+ * @property string $year
  * @property string $from_date
  * @property string $to_date
  * @property string $enable_flag
@@ -35,10 +36,10 @@ class ProgramOffer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['program_id', 'session_id', 'from_date', 'to_date', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
+            [['program_id', 'session_id', 'year', 'from_date', 'to_date'], 'required'],
             [['program_id', 'session_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
-            [['from_date', 'to_date', 'last_update_date', 'creation_date'], 'safe'],
-            [['enable_flag'], 'string', 'max' => 2],
+            [['year', 'from_date', 'to_date', 'last_update_date', 'creation_date', 'last_update_date', 'last_updated_by', 'created_by', 'last_update_login'], 'safe'],
+//            [['enable_flag'], 'string', 'max' => 2],
         ];
     }
 
@@ -51,6 +52,7 @@ class ProgramOffer extends \yii\db\ActiveRecord
             'offer_id' => Yii::t('app', 'Offer ID'),
             'program_id' => Yii::t('app', 'Program ID'),
             'session_id' => Yii::t('app', 'Session ID'),
+            'year' => Yii::t('app', 'Year'),
             'from_date' => Yii::t('app', 'From Date'),
             'to_date' => Yii::t('app', 'To Date'),
             'enable_flag' => Yii::t('app', 'Enable Flag'),

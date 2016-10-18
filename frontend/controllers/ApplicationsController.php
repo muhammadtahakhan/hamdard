@@ -8,6 +8,7 @@ use frontend\models\ApplicationsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * ApplicationsController implements the CRUD actions for Applications model.
@@ -37,6 +38,9 @@ class ApplicationsController extends Controller
     {
         $searchModel = new ApplicationsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        
+        
+        
         
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -70,12 +74,93 @@ class ApplicationsController extends Controller
     public function actionCreate()
     {
         $model = new Applications();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+     
+        $time = new \DateTime('now');
+         $cyear = $time->format('Y');
+        $today = $time->format('Y-m-d');
+        strtotime($today)."<br />";
+        
+        
+         $preferance = \backend\models\ProgramOffer::find()->andWhere(['=', 'year', $cyear])->andWhere(['between', 'from_date', 'to_date',  $today ])->all();
+//         echo  "<pre>";
+//         print_r($preferance);
+//         echo  "</pre>";
+         
+        if ($model->load(Yii::$app->request->post())) {
+//                sturdent info 
+//            echo $model->name."<br />">
+//            echo $model->nic."<br />";
+//            echo $model->dob."<br />";
+//            echo $model->email."<br />";
+//            echo $model->mobile."<br />";
+//            echo $model->phone."<br />";
+//            echo $model->nationality."<br />";
+//            echo $model->gender."<br />";
+//            echo $model->address."<br />";
+//            echo $model->country."<br />";
+//            echo $model->city."<br />";
+                      
+//                   parent info   
+//            echo $model->f_name."<br />";
+//            echo $model->f_nic."<br />";
+//            echo $model->f_email."<br />";
+//            echo $model->f_income."<br />";
+//            echo $model->f_occupation."<br />";
+//            echo $model->f_phone."<br />";
+//            echo $model->f_mobile."<br />";
+//            echo $model->f_perminant_Address."<br />";
+            
+//                final tabs
+//            echo $model->campus."<br />";
+//            echo $model->hostal_flag."<br />";
+//            echo $model->student_type."<br />";
+//            echo $model->test_center."<br />";
+                                
+//                preferances
+              
+//            echo $model->campus."<br />";
+//            echo $model->campus."<br />";
+//            echo $model->campus."<br />";
+//            echo $model->campus."<br />";
+//            echo $model->campus."<br />";
+            
+//               Academin Records
+//            print_r($model->qualification);echo "<br />";
+//            print_r($model->subject);echo "<br />";
+//            print_r($model->passing_year);echo "<br />";
+//            print_r($model->attempt);echo "<br />";
+//            print_r($model->total_marks);echo "<br />";
+//            print_r($model->obtained);echo "<br />";
+//            print_r($model->percentage);echo "<br />";
+//            print_r($model->boarduni);echo "<br />";
+            
+//                Preferances
+              print_r($model->preferance);echo "<br />";
+            
+                
+//            echo $model->preferance."<br />";
+//            echo $model->campus."<br />";
+//            echo $model->campus."<br />";
+//            echo $model->campus."<br />";
+//            echo $model->campus."<br />";
+                              
+            
+            exit();
+            $model->save();
             return $this->redirect(['view', 'id' => $model->application_id]);
         } else {
+            
+           
+            $nationality=ArrayHelper::map(\backend\models\Nationality::find()->all(), 'nationality_id', 'name');
+             $country=ArrayHelper::map(\backend\models\Country::find()->all(), 'country_id', 'name');
+              $city=ArrayHelper::map(\backend\models\City::find()->all(), 'city_id', 'name');
+            
             return $this->render('create', [
                 'model' => $model,
+                'nationality'=>$nationality,
+                'country'=>$country,
+                'city'=>$city,
+                'preferance'=>$preferance
             ]);
         }
     }
