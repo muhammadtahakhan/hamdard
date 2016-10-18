@@ -34,7 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_by',
             // 'last_update_login',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',  'template' => '{view} {update}',
+],
         ],
     ]); ?>
 </div>
