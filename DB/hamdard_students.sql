@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 16, 2016 at 10:53 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.5
+-- Host: localhost
+-- Generation Time: Oct 18, 2016 at 11:43 ص
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 7.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -65,7 +65,7 @@ CREATE TABLE `applications` (
   `city` int(11) NOT NULL,
   `f_name` varchar(20) NOT NULL,
   `f_nic` varchar(20) NOT NULL,
-  `f_dob` date NOT NULL,
+  `f_occupation` varchar(20) NOT NULL,
   `f_email` varchar(20) NOT NULL,
   `f_mobile` varchar(20) NOT NULL,
   `f_phone` varchar(20) NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE `applications` (
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`application_id`, `name`, `nic`, `dob`, `email`, `mobile`, `phone`, `nationality`, `gender`, `address`, `country`, `city`, `f_name`, `f_nic`, `f_dob`, `f_email`, `f_mobile`, `f_phone`, `f_nationality`, `f_current_address`, `f_country`, `f_city`, `campus`, `test_center`, `student_type`, `f_income`, `f_perminant_Address`, `hostal_flag`, `enable_flag`, `last_updated_date`, `last_updated_by`, `creation_date`, `created_by`, `last_update_login`, `print_id`) VALUES
+INSERT INTO `applications` (`application_id`, `name`, `nic`, `dob`, `email`, `mobile`, `phone`, `nationality`, `gender`, `address`, `country`, `city`, `f_name`, `f_nic`, `f_occupation`, `f_email`, `f_mobile`, `f_phone`, `f_nationality`, `f_current_address`, `f_country`, `f_city`, `campus`, `test_center`, `student_type`, `f_income`, `f_perminant_Address`, `hostal_flag`, `enable_flag`, `last_updated_date`, `last_updated_by`, `creation_date`, `created_by`, `last_update_login`, `print_id`) VALUES
 (1, 'tah', '123123', '0000-00-00', 'dfasf@yahoo.com', '098765432', '098765432', 'kjhkjhk', 'kjkjhkjh', 'kjhjkhkj', 1, 1, 'kjkjh', '09876543212456789', '0000-00-00', 'lkj@yahoo.cm', '098765432', '09876543', 'kjjkjkkjjk', '098765432lkjhgfd', 2, 2, 'knkkjnjk', 12, 'sdfghjkl', 23456, 'sdfghj45678', 0, '', '0000-00-00', 987987987, '0000-00-00', 2147483647, 2147483647, '98789789789789');
 
 -- --------------------------------------------------------
@@ -132,6 +132,15 @@ CREATE TABLE `city` (
   `last_update_login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`city_id`, `country_id`, `name`, `slug`, `enable_flag`, `last_update_date`, `last_updated_by`, `creation_date`, `created_by`, `last_update_login`) VALUES
+(1, 1, 'karachi', 'karachi', '1', '0000-00-00', 1, '0000-00-00', 11, 1),
+(2, 1, 'lahor', 'lahore', '1', '2016-10-17', 1, '0000-00-00', 11, 0),
+(3, 1, 'islamabab', 'islamabad', 'Y', '2016-10-17', 1, '2016-10-17', 1, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -149,6 +158,14 @@ CREATE TABLE `country` (
   `created_by` int(11) NOT NULL,
   `last_update_login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`country_id`, `name`, `slug`, `enable_flag`, `last_update`, `last_update_by`, `creation_date`, `created_by`, `last_update_login`) VALUES
+(1, 'pskistan', 'pakistan', '1', '0000-00-00', 1, '0000-00-00', 1, 1),
+(2, 'bahatar', 'banarat', 'Y', '2016-10-17', 1, '2016-10-17', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -187,6 +204,15 @@ CREATE TABLE `nationality` (
   `last_update_login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `nationality`
+--
+
+INSERT INTO `nationality` (`nationality_id`, `name`, `slug`, `enable_flag`, `last_update_date`, `last_updated_by`, `creation_date`, `created_by`, `last_update_login`) VALUES
+(1, 'Pakistani', 'pkaistani', '', '0000-00-00', 11, '0000-00-00', 111, 111),
+(2, 'indian', 'indian', '1', '0000-00-00', 1, '0000-00-00', 1, 1),
+(3, 'pakistani', 'pakistanikkkk', 'Y', '2016-10-18', 1, '2016-10-18', 1, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -205,6 +231,15 @@ CREATE TABLE `programs` (
   `lase_update_login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `programs`
+--
+
+INSERT INTO `programs` (`program_id`, `name`, `slug`, `enable_flag`, `last_update_date`, `last_update_by`, `creation_date`, `created_by`, `lase_update_login`) VALUES
+(4, 'test program1', 'test program1', 'Y', '0000-00-00', 0, '0000-00-00', 0, 0),
+(5, 'test program2', 'test program2', 'Y', '0000-00-00', 0, '0000-00-00', 0, 0),
+(6, 'test program3', 'test program3', 'Y', '0000-00-00', 0, '0000-00-00', 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -215,6 +250,7 @@ CREATE TABLE `program_offer` (
   `offer_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL,
   `session_id` int(11) NOT NULL,
+  `year` year(4) NOT NULL,
   `from_date` date NOT NULL,
   `to_date` date NOT NULL,
   `enable_flag` varchar(2) NOT NULL DEFAULT 'Y',
@@ -224,6 +260,15 @@ CREATE TABLE `program_offer` (
   `created_by` int(11) NOT NULL,
   `last_update_login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `program_offer`
+--
+
+INSERT INTO `program_offer` (`offer_id`, `program_id`, `session_id`, `year`, `from_date`, `to_date`, `enable_flag`, `last_update_date`, `last_updated_by`, `creation_date`, `created_by`, `last_update_login`) VALUES
+(45, 4, 2, 2016, '2016-10-01', '2016-10-31', 'Y', '2016-10-18', 1, '2016-10-18', 1, 0),
+(46, 5, 2, 2016, '2016-10-01', '2016-10-31', 'Y', '2016-10-18', 1, '2016-10-18', 1, 0),
+(47, 6, 2, 2016, '2016-10-01', '2016-10-31', 'Y', '2016-10-18', 1, '2016-10-18', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -265,6 +310,15 @@ CREATE TABLE `session` (
   `last_update_login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `session`
+--
+
+INSERT INTO `session` (`session_id`, `name`, `year`, `enable_flag`, `last_update_date`, `last_updated_by`, `creation_date`, `created_by`, `last_update_login`) VALUES
+(2, 'test session1', '2016-10-04', 'Y', '2016-10-18', 1, '2016-10-18', 1, 0),
+(3, 'test session2', '2016-10-26', 'Y', '2016-10-18', 1, '2016-10-18', 1, 0),
+(4, 'test session3', '2016-10-12', 'Y', '2016-10-18', 1, '2016-10-18', 1, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -282,6 +336,13 @@ CREATE TABLE `test_centers` (
   `created_by` int(11) NOT NULL,
   `last_update_login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `test_centers`
+--
+
+INSERT INTO `test_centers` (`test_center_id`, `name`, `locaion`, `enable_flag`, `last_update_date`, `last_updated_by`, `creation_date`, `created_by`, `last_update_login`) VALUES
+(1, 'awdad', 'aadasd', 0, '2016-10-18', 1, '2016-10-18', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -416,27 +477,27 @@ ALTER TABLE `board_university`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `nationality`
 --
 ALTER TABLE `nationality`
-  MODIFY `nationality_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `nationality_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `programs`
 --
 ALTER TABLE `programs`
-  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `program_offer`
 --
 ALTER TABLE `program_offer`
-  MODIFY `offer_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `offer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `program_preferance`
 --
@@ -446,12 +507,12 @@ ALTER TABLE `program_preferance`
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `test_centers`
 --
 ALTER TABLE `test_centers`
-  MODIFY `test_center_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `test_center_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --

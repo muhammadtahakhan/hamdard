@@ -136,7 +136,7 @@ class ApplicationsController extends Controller
             
 //                Preferances
               print_r($model->preferance);echo "<br />";
-            
+            exit;
                 
 //            echo $model->preferance."<br />";
 //            echo $model->campus."<br />";
