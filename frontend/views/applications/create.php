@@ -19,7 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'nationality'=>$nationality,
         'country'=>$country,
         'city'=>$city,
-          'preferance'=>$preferance
+        'preferance'=>$preferance,
+        'boarduni'=>$boarduni
     ]) ?>
 
 </div>

@@ -415,10 +415,16 @@ use yii\widgets\ActiveForm;
                    <td><input name="Applications[obtained][]" type="text" class="form-control" value=""/></td>
                    <td><input name="Applications[percentage][]" type="text" class="form-control" value=""/></td>
                                                 <td> 
-                                                    <select class="form-control" name="Applications[boarduni][]">
+<!--                                                    <select class="form-control" name="Applications[boarduni][]">
                                                         <option>Monthly</option>
                                                         <option>Yearly</option>
-                                                    </select>
+                                                    </select>-->
+                                                    
+                                                     <?= $form->field($model, 'boarduni', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
                                                 </td>
 
                                             </tr>                            

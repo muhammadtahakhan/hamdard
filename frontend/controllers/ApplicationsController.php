@@ -132,11 +132,11 @@ class ApplicationsController extends Controller
 //            print_r($model->total_marks);echo "<br />";
 //            print_r($model->obtained);echo "<br />";
 //            print_r($model->percentage);echo "<br />";
-//            print_r($model->boarduni);echo "<br />";
+            print_r($model->boarduni);echo "<br />";
             
 //                Preferances
-              print_r($model->preferance);echo "<br />";
-            exit;
+//              print_r($model->preferance);echo "<br />";
+            exit();
                 
 //            echo $model->preferance."<br />";
 //            echo $model->campus."<br />";
@@ -154,13 +154,15 @@ class ApplicationsController extends Controller
             $nationality=ArrayHelper::map(\backend\models\Nationality::find()->all(), 'nationality_id', 'name');
              $country=ArrayHelper::map(\backend\models\Country::find()->all(), 'country_id', 'name');
               $city=ArrayHelper::map(\backend\models\City::find()->all(), 'city_id', 'name');
+               $boarduni=ArrayHelper::map(\backend\models\BoardUniversity::find()->all(), 'board_uni_id', 'name');
             
             return $this->render('create', [
                 'model' => $model,
                 'nationality'=>$nationality,
                 'country'=>$country,
                 'city'=>$city,
-                'preferance'=>$preferance
+                'preferance'=>$preferance,
+                'boarduni'=>$boarduni
             ]);
         }
     }

@@ -33,8 +33,8 @@ class BoardUniversity extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'slug', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'required'],
-            [['last_update_date', 'creation_date'], 'safe'],
+            [['name', 'slug'], 'required'],
+            [['last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'safe'],
             [['last_updated_by', 'created_by', 'last_update_login'], 'integer'],
             [['name', 'slug'], 'string', 'max' => 30],
             [['enable_flag'], 'string', 'max' => 2],
