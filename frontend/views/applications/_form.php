@@ -68,7 +68,7 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter NIC', 'required'=>'true'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter NIC', 'required'=>'true', 'min'=>'1', 'maxlength'=>'15', 'type'=>'number',));  ?>
 
                                      <?= $form->field($model, 'dob', ['template' => 
                                            "<div class='form-group'>
@@ -88,13 +88,13 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Mobile Number', 'required'=>'true'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter Mobile Number', 'min'=>'1', 'maxlength'=>'11', 'type'=>'number', 'required'=>'true'));  ?>
 
                                          <?= $form->field($model, 'phone', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Phone Number', 'required'=>'true'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter Phone Number', 'min'=>'1', 'maxlength'=>'11', 'type'=>'number', 'required'=>'true'));  ?>
 
 <!--                                    <div class="form-group">
                                         <label for="exampleInputEmail1">date of birth</label>
@@ -186,19 +186,19 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's NIC", 'required'=>'true'])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's NIC", 'min'=>'1', 'maxlength'=>'15', 'type'=>'number', 'required'=>'true'])  ?>
                                     
                                     <?= $form->field($model, 'f_email', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Email", 'required'=>'true'])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Email", 'type'=>"email", 'id'=>"exampleInputEmail1", 'required'=>'true'])  ?>
                                     
                                       <?= $form->field($model, 'f_phone', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Phone", 'required'=>'true']) ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Phone", 'min'=>'1', 'maxlength'=>'11', 'type'=>'number', 'required'=>'true']) ?>
                                     
                                     
                                     
@@ -206,15 +206,9 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Mobile", 'required'=>'true']) ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Mobile", 'min'=>'1', 'maxlength'=>'11', 'type'=>'number', 'required'=>'true']) ?>
                                     
-                                    
-                                      <?= $form->field($model, 'f_phone', ['template' => 
-                                           "<div class='form-group'>
-                                                {label}\n{input}\n{hint}\n{error}
-                                             </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Mobile", 'required'=>'true']) ?>
-                                    
+                                                                        
                                     
                                     <?= $form->field($model, 'f_occupation', ['template' => 
                                            "<div class='form-group'>
@@ -261,7 +255,7 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Occupation", 'required'=>'true'])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Occupation", 'min'=>'1', 'max'=>'300000', 'type'=>'number', 'required'=>'true'])  ?>
                                     
                                       
                                       <?= $form->field($model, 'f_country', ['template' => 
