@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
+use frontend\models\ProgramPreferance;
 
 /**
  * ApplicationsController implements the CRUD actions for Applications model.
@@ -93,7 +94,8 @@ class ApplicationsController extends Controller
     /**
      * Creates a new Applications model.
      * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * @return mixed     * If creation is successful, the browser will be redirected to the 'view' page.
+
      */
     public function actionCreate()
     {
@@ -159,6 +161,7 @@ class ApplicationsController extends Controller
 //            print_r($model->percentage);echo "<br />";
 //            print_r($model->boarduni);echo "<br />";
             
+            
 //                Preferances
 //              print_r($model->preferance);echo "<br />";
 //            exit();
@@ -168,7 +171,20 @@ class ApplicationsController extends Controller
 //            echo $model->campus."<br />";
 //            echo $model->campus."<br />";
 //            echo $model->campus."<br />";
-                              
+            
+            foreach($model->preferance as $preferance){
+                
+                $newpre = new ProgramPreferance();
+                $newpre->application_id= $model->application_id;
+                $newpre->program_id=$preferance;
+                $newpre->created_by=1;
+                $newpre->creation_date=date("Y/m/d");
+                $newpre->last_updated_by = 2;
+                $newpre->last_update_date=date("Y/m/d");
+                $newpre->last_update_login=0;
+                $newpre->save();
+            
+            }
             
 //            exit();
           if($model->save()){

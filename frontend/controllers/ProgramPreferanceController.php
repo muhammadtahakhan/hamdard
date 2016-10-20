@@ -65,8 +65,17 @@ class ProgramPreferanceController extends Controller
     {
         $model = new ProgramPreferance();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            
+            $model->created_by=1;
+            $model->creation_date=date("Y/m/d");
+            $model->last_updated_by = 2;
+            $model->last_update_date=date("Y/m/d");
+            $model->last_update_login=0;
+           if( $model->save()){
+            
             return $this->redirect(['view', 'id' => $model->id]);
+           }
         } else {
             return $this->render('create', [
                 'model' => $model,

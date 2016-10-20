@@ -18,8 +18,8 @@ class ProgramPreferanceSearch extends ProgramPreferance
     public function rules()
     {
         return [
-            [['id', 'application_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
-            [['first_preferance', 'secend_preferance', 'third_preferance', 'fourth_preferance', 'fifth_preferance', 'enable_flag', 'last_update_date', 'creation_date'], 'safe'],
+            [['id', 'application_id', 'program_id', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
+            [['enable_flag', 'last_update_date', 'creation_date'], 'safe'],
         ];
     }
 
@@ -61,6 +61,7 @@ class ProgramPreferanceSearch extends ProgramPreferance
         $query->andFilterWhere([
             'id' => $this->id,
             'application_id' => $this->application_id,
+            'program_id' => $this->program_id,
             'last_update_date' => $this->last_update_date,
             'last_updated_by' => $this->last_updated_by,
             'creation_date' => $this->creation_date,
@@ -68,12 +69,7 @@ class ProgramPreferanceSearch extends ProgramPreferance
             'last_update_login' => $this->last_update_login,
         ]);
 
-        $query->andFilterWhere(['like', 'first_preferance', $this->first_preferance])
-            ->andFilterWhere(['like', 'secend_preferance', $this->secend_preferance])
-            ->andFilterWhere(['like', 'third_preferance', $this->third_preferance])
-            ->andFilterWhere(['like', 'fourth_preferance', $this->fourth_preferance])
-            ->andFilterWhere(['like', 'fifth_preferance', $this->fifth_preferance])
-            ->andFilterWhere(['like', 'enable_flag', $this->enable_flag]);
+        $query->andFilterWhere(['like', 'enable_flag', $this->enable_flag]);
 
         return $dataProvider;
     }

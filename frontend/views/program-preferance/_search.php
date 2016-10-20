@@ -19,19 +19,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'application_id') ?>
 
-    <?= $form->field($model, 'first_preferance') ?>
+    <?= $form->field($model, 'program_id') ?>
 
-    <?= $form->field($model, 'secend_preferance') ?>
+    <?= $form->field($model, 'enable_flag') ?>
 
-    <?= $form->field($model, 'third_preferance') ?>
-
-    <?php // echo $form->field($model, 'fourth_preferance') ?>
-
-    <?php // echo $form->field($model, 'fifth_preferance') ?>
-
-    <?php // echo $form->field($model, 'enable_flag') ?>
-
-    <?php // echo $form->field($model, 'last_update_date') ?>
+    <?= $form->field($model, 'last_update_date') ?>
 
     <?php // echo $form->field($model, 'last_updated_by') ?>
 

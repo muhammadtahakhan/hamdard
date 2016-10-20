@@ -30,11 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'application_id',
-            'first_preferance',
-            'secend_preferance',
-            'third_preferance',
-            'fourth_preferance',
-            'fifth_preferance',
+            'program_id',
             'enable_flag',
             'last_update_date',
             'last_updated_by',

@@ -14,15 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'application_id')->textInput() ?>
 
-    <?= $form->field($model, 'first_preferance')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'secend_preferance')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'third_preferance')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'fourth_preferance')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'fifth_preferance')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'program_id')->textInput() ?>
 
     <?= $form->field($model, 'enable_flag')->textInput(['maxlength' => true]) ?>
 
