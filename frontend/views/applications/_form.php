@@ -82,7 +82,7 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => 'Enter Email address', 'required'=>'true']);  ?>
+                                      ])->textInput(['placeholder' => 'Enter Email address', 'required'=>'true', 'type'=>'email']);  ?>
 
                                      <?= $form->field($model, 'mobile', ['template' => 
                                            "<div class='form-group'>
@@ -192,7 +192,7 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Email", 'type'=>"email", 'id'=>"exampleInputEmail1", 'required'=>'true'])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Email", 'type'=>'email', 'id'=>"exampleInputEmail", 'required'=>'true'])  ?>
                                     
                                       <?= $form->field($model, 'f_phone', ['template' => 
                                            "<div class='form-group'>
@@ -871,4 +871,11 @@ function apreferance(){
        }
   });
 }
+
+
+</script>
+<script>
+$(document).ready(function() {
+    $('#exampleInputEmail').formValidation();
+});
 </script>
