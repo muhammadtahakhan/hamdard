@@ -371,9 +371,9 @@ use yii\widgets\ActiveForm;
                                                     <option>5</option>
                                                 </select>
                    </td>
-                   <td><input name="Applications[total_marks][]" type="text" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[obtained][]" type="text" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[percentage][]" type="text" class="form-control" value="" required="true" /></td>
+                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
                                                  <td> 
 <!--                                                    <select class="form-control" name="Applications[boarduni][]">
                                                         <option>Monthly</option>
