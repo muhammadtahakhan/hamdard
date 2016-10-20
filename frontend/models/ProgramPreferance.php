@@ -33,10 +33,10 @@ class ProgramPreferance extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['application_id', 'program_id'], 'required'],
-            [['application_id', 'program_id'], 'integer'],
-            [['last_update_date', 'creation_date', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'safe'],
-            [['enable_flag'], 'string', 'max' => 2],
+//            [['application_id', 'program_id'], 'required'],
+//            [['application_id', 'program_id'], 'integer'],
+            [['application_id', 'program_id', 'last_update_date', 'creation_date', 'last_update_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login'], 'safe'],
+//            [['enable_flag'], 'string', 'max' => 2],
         ];
     }
 

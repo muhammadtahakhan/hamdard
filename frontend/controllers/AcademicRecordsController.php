@@ -65,7 +65,16 @@ class AcademicRecordsController extends Controller
     {
         $model = new AcademicRecords();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            
+            $model->created_by=0;
+            $model->creation_date=date("Y/m/d");
+            $model->last_updated_by=0;
+            $model->last_update_date=date("Y/m/d");
+            $model->last_update_login=0;
+            $model->save();
+            
+            
             return $this->redirect(['view', 'id' => $model->academic_id]);
         } else {
             return $this->render('create', [

@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use frontend\models\ProgramPreferance;
-
+use frontend\models\AcademicRecords;
 /**
  * ApplicationsController implements the CRUD actions for Applications model.
  */
@@ -172,24 +172,70 @@ class ApplicationsController extends Controller
 //            echo $model->campus."<br />";
 //            echo $model->campus."<br />";
             
-            foreach($model->preferance as $preferance){
-                
-                $newpre = new ProgramPreferance();
-                $newpre->application_id= $model->application_id;
-                $newpre->program_id=$preferance;
-                $newpre->created_by=1;
-                $newpre->creation_date=date("Y/m/d");
-                $newpre->last_updated_by = 2;
-                $newpre->last_update_date=date("Y/m/d");
-                $newpre->last_update_login=0;
-                $newpre->save();
-            
-            }
+           
             
 //            exit();
           if($model->save()){
 //            return $this->redirect(['view', 'id' => $model->application_id]);
-          return $this->redirect(['index']);}
+                            foreach($model->preferance as $preferance){
+//                             echo $preferance;
+                             $newpre = new ProgramPreferance();
+                             $newpre->application_id= $model->application_id;
+                             $newpre->program_id=$preferance;
+                             $newpre->created_by=0;
+                             $newpre->creation_date=date("Y/m/d");
+                             $newpre->last_updated_by = 2;
+                             $newpre->last_update_date=date("Y/m/d");
+                             $newpre->last_update_login=0;
+                           if( $newpre->save()){
+                               echo "saving";
+                           } else {
+                               echo "preferance not saving";
+                               exit();
+                           }
+
+                         }
+                         
+//                print_r(count($model->qualification));
+                     for ($x = 0; $x <= count($model->qualification)-1; $x++) {
+//                        echo $model->boarduni[$x];
+//                        print_r($model->boarduni);
+                         
+                         $record = new AcademicRecords();
+//                         $record->qualification=$model->qualification[$x];
+                         $record->subject= $model->subject[$x];
+                         $record->passing_year=$model->passing_year[$x];
+                         $record->attemps= $model->attempt[$x];
+                         $record->total_marks= $model->total_marks[$x];
+                         $record->marks_obtained=  $model->obtained[$x];
+                         $record->percentage= $model->percentage[$x];
+                         $record->uni_board= $model->boarduni[$x];
+                         $record->application_id=$model->application_id;
+                         $record->created_by=0;
+                         $record->creation_date=date("Y/m/d");
+                         $record->last_updated_by=0;
+                         $record->last_update_date=date("Y/m/d");
+                         $record->last_update_login=0;
+                        if( $record->save()){
+                            
+                        } else {
+                        echo "academic record is not saving";    
+                        }
+                         
+                                                
+                                                     
+                        } 
+//                        exit();
+                        
+                          $md5email = Applications::find()->where(['application_id'=>$model->application_id])->one();
+                          $md5email->print_id = md5($model->application_id+$model->email);
+                          $md5email->save();
+                         
+          return $this->redirect(['index']);
+          
+                        }else{
+              echo "application not saving";
+          }
         } else {
             
            

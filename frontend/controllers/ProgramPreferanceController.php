@@ -67,7 +67,7 @@ class ProgramPreferanceController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             
-            $model->created_by=1;
+            $model->created_by=0;
             $model->creation_date=date("Y/m/d");
             $model->last_updated_by = 2;
             $model->last_update_date=date("Y/m/d");
