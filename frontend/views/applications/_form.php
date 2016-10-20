@@ -62,7 +62,7 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Name', 'required'=>'true', 'data-parsley-group'=>'block0'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter Name', 'required'=>'true', 'required data-msg'=>'Name This field is required.', 'data-parsley-group'=>'block0'));  ?>
 
                                       <?= $form->field($model, 'nic', ['template' => 
                                            "<div class='form-group'>
