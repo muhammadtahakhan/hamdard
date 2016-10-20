@@ -62,19 +62,19 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Name'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter Name', 'required'=>'true', 'data-parsley-group'=>'block0'));  ?>
 
                                       <?= $form->field($model, 'nic', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter NIC'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter NIC', 'required'=>'true'));  ?>
 
                                      <?= $form->field($model, 'dob', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Date of Birth', 'id'=>'date'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter Date of Birth', 'id'=>'date', 'required'=>'true'));  ?>
 
                                         
 
@@ -82,19 +82,19 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => 'Enter Email address']);  ?>
+                                      ])->textInput(['placeholder' => 'Enter Email address', 'required'=>'true']);  ?>
 
                                      <?= $form->field($model, 'mobile', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Mobile Number'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter Mobile Number', 'required'=>'true'));  ?>
 
                                          <?= $form->field($model, 'phone', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Phone Number'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter Phone Number', 'required'=>'true'));  ?>
 
 <!--                                    <div class="form-group">
                                         <label for="exampleInputEmail1">date of birth</label>
@@ -130,7 +130,7 @@ use yii\widgets\ActiveForm;
                                 </div>
                                   <div class="col-lg-6">
                                      
-                                      
+                                      <?php $model->gender = 'male'; ?>
                                       <?= $form->field($model, 'gender', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
@@ -141,27 +141,27 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->dropDownList($nationality,  ['prompt'=>'Choose...']); ?>
+                                      ])->dropDownList($nationality,  ['prompt'=>'Choose...', 'required'=>'true']); ?>
                                       
                                       
                                       <?= $form->field($model, 'country', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->dropDownList($country, ['prompt'=>'Choose...']); ?>
+                                      ])->dropDownList($country, ['prompt'=>'Choose...', 'required'=>'true']); ?>
                                       
                                       <?= $form->field($model, 'city', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->dropDownList($city, ['prompt'=>'Choose...']);  ?>
+                                      ])->dropDownList($city, ['prompt'=>'Choose...', 'required'=>'true']);  ?>
                                       
                                        
                                       <?= $form->field($model, 'address', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Address'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter Address', 'required'=>'true'));  ?>
  
                                     
                                 </div>
@@ -179,26 +179,26 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Name"])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Name", 'required'=>'true'])  ?>
                                     
                                     
                                       <?= $form->field($model, 'f_nic', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's NIC"])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's NIC", 'required'=>'true'])  ?>
                                     
                                     <?= $form->field($model, 'f_email', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Email"])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Email", 'required'=>'true'])  ?>
                                     
                                       <?= $form->field($model, 'f_phone', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Phone"]) ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Phone", 'required'=>'true']) ?>
                                     
                                     
                                     
@@ -206,21 +206,21 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Mobile"]) ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Mobile", 'required'=>'true']) ?>
                                     
                                     
                                       <?= $form->field($model, 'f_phone', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Mobile"]) ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Mobile", 'required'=>'true']) ?>
                                     
                                     
                                     <?= $form->field($model, 'f_occupation', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Occupation"])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Occupation", 'required'=>'true'])  ?>
                                     
                                     
 <!--                                     <div class="form-group">
@@ -261,20 +261,20 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Occupation"])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Occupation", 'required'=>'true'])  ?>
                                     
                                       
                                       <?= $form->field($model, 'f_country', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->dropDownList($country, ['prompt'=>'Choose...']); ?>
+                                      ])->dropDownList($country, ['prompt'=>'Choose...', 'required'=>'true']); ?>
                                       
                                       <?= $form->field($model, 'f_city', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->dropDownList($city, ['prompt'=>'Choose...']);  ?>
+                                      ])->dropDownList($city, ['prompt'=>'Choose...', 'required'=>'true']);  ?>
                                     
                                    
                                     
@@ -282,7 +282,7 @@ use yii\widgets\ActiveForm;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(['placeholder' => "Father\Guardian's Address"])  ?>
+                                      ])->textInput(['placeholder' => "Father\Guardian's Address", 'required'=>'true'])  ?>
                                     
                                     
 <!--                                   
@@ -363,13 +363,13 @@ use yii\widgets\ActiveForm;
                         </select>
                     </td>
                     <td>
-                        <input type="text" class="form-control" name="Applications[subject][]" value=""/>
+                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
                     </td>
                     <td> 
-                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value=""/>
+                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value="" required="true"/>
                     </td>
                     <td>
-                        <select class="form-control" name="Applications[attempt][]">
+                        <select class="form-control" name="Applications[attempt][]" required="true">
                                                     <option>1</option>
                                                     <option>2</option>
                                                     <option>3</option>
@@ -377,18 +377,63 @@ use yii\widgets\ActiveForm;
                                                     <option>5</option>
                                                 </select>
                    </td>
-                   <td><input name="Applications[total_marks][]" type="text" class="form-control" value=""/></td>
-                   <td><input name="Applications[obtained][]" type="text" class="form-control" value=""/></td>
-                   <td><input name="Applications[percentage][]" type="text" class="form-control" value=""/></td>
-                                                <td> 
-                                                    <select class="form-control" name="Applications[boarduni][]">
+                   <td><input name="Applications[total_marks][]" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[obtained][]" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[percentage][]" type="text" class="form-control" value="" required="true" /></td>
+                                                 <td> 
+<!--                                                    <select class="form-control" name="Applications[boarduni][]">
                                                         <option>Monthly</option>
                                                         <option>Yearly</option>
-                                                    </select>
+                                                    </select>-->
+                                                    
+                                                     <?= $form->field($model, 'boarduni', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...', 'required'=>'true'])->label(FALSE); ?>
                                                 </td>
 
                                             </tr>
                                             
+                <tr>
+                    <td> 
+                        <select class="form-control" name="Applications[qualification][]" required="true">
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
+                    </td>
+                    <td> 
+                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value="" required="true"/>
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]" required="true">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[obtained][]" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[percentage][]" type="text" class="form-control" value="" required="true"/></td>
+                                                <td> 
+<!--                                                    <select class="form-control" name="Applications[boarduni][]">
+                                                        <option>Monthly</option>
+                                                        <option>Yearly</option>
+                                                    </select>-->
+                                                    
+                                                     <?= $form->field($model, 'boarduni', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...', 'required'=>'true'])->label(FALSE); ?>
+                                                </td>
+
+                                            </tr>
                  <tr>
                     <td> 
                         <select class="form-control" name="Applications[qualification][]">
@@ -427,7 +472,85 @@ use yii\widgets\ActiveForm;
                                       ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
                                                 </td>
 
-                                            </tr>                            
+                                            </tr>
+                                             <tr>
+                    <td> 
+                        <select class="form-control" name="Applications[qualification][]">
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="Applications[subject][]" value=""/>
+                    </td>
+                    <td> 
+                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value=""/>
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="text" class="form-control" value=""/></td>
+                   <td><input name="Applications[obtained][]" type="text" class="form-control" value=""/></td>
+                   <td><input name="Applications[percentage][]" type="text" class="form-control" value=""/></td>
+                                                <td> 
+<!--                                                    <select class="form-control" name="Applications[boarduni][]">
+                                                        <option>Monthly</option>
+                                                        <option>Yearly</option>
+                                                    </select>-->
+                                                    
+                                                     <?= $form->field($model, 'boarduni', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
+                                                </td>
+
+                                            </tr>
+                                             <tr>
+                    <td> 
+                        <select class="form-control" name="Applications[qualification][]">
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="Applications[subject][]" value=""/>
+                    </td>
+                    <td> 
+                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value=""/>
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="text" class="form-control" value=""/></td>
+                   <td><input name="Applications[obtained][]" type="text" class="form-control" value=""/></td>
+                   <td><input name="Applications[percentage][]" type="text" class="form-control" value=""/></td>
+                                                <td> 
+<!--                                                    <select class="form-control" name="Applications[boarduni][]">
+                                                        <option>Monthly</option>
+                                                        <option>Yearly</option>
+                                                    </select>-->
+                                                    
+                                                     <?= $form->field($model, 'boarduni', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
+                                                </td>
+
+                                            </tr>
                                          
 
                                         </tbody>
@@ -468,7 +591,7 @@ use yii\widgets\ActiveForm;
                                      
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
-                                        <select class="form-control" name="Applications[preferance][]">
+                                        <select class="form-control" onchange="apreferance()" name="Applications[preferance][]">
                                    <?php
                                       foreach ($preferance as $mypre){
 //                                          <!--print_r($mypre->offer_id)."<br />";-->
@@ -549,81 +672,7 @@ use yii\widgets\ActiveForm;
                                      </select>
                                     </div>
                                    
-<!--                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">First Preferance</label>
-                                        <select class="form-control" name="Applications[preferance][]">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">second Preferance</label>
-                                          <select class="form-control" name="Applications[preferance][]">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Third Preferance</label>
-                                          <select class="form-control" name="Applications[preferance][]">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Fourth Preferance</label>
-                                          <select class="form-control" name="Applications[preferance][]">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">fifth Preferance</label>
-                                          <select class="form-control" name="Applications[preferance][]">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>-->
+
                                 </div>
                                 
                                 <div class="col-lg-6">
@@ -809,3 +858,23 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>-->
+<script>
+function apreferance(){
+//    var csrfToken = $('meta[name="csrf-token"]').attr("content");
+    $.ajax({
+       url: '<?php echo Yii::$app->getUrlManager()->createUrl('applications/sample')  ; ?>',
+       type: 'GET',
+        dataType: 'json',
+       data: {
+                 searchname: 'name ', 
+                 searchby:'safsd' , 
+//                 _csrf : csrfToken,
+//                 _csrf : '<?=Yii::$app->request->getCsrfToken()?>'                 
+                
+             },
+       success: function (data) {
+          console.log(data.search);
+       }
+  });
+}
+</script>

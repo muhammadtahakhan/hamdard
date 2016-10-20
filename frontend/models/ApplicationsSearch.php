@@ -19,7 +19,7 @@ class ApplicationsSearch extends Applications
     {
         return [
             [['application_id', 'country', 'city', 'f_country', 'f_city', 'test_center', 'f_income', 'hostal_flag', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
-            [['name', 'nic', 'dob', 'email', 'mobile', 'phone', 'nationality', 'gender', 'address', 'f_name', 'f_nic', 'f_dob', 'f_email', 'f_mobile', 'f_phone', 'f_nationality', 'f_current_address', 'campus', 'student_type', 'f_perminant_Address', 'enable_flag', 'last_updated_date', 'creation_date', 'print_id'], 'safe'],
+            [['name', 'nic', 'dob', 'email', 'mobile', 'phone', 'nationality', 'gender', 'address', 'f_name', 'f_nic', 'f_occupation', 'f_email', 'f_mobile', 'f_phone', 'f_nationality', 'f_current_address', 'campus', 'student_type', 'f_perminant_Address', 'enable_flag', 'last_updated_date', 'creation_date', 'print_id'], 'safe'],
         ];
     }
 
@@ -63,7 +63,7 @@ class ApplicationsSearch extends Applications
             'dob' => $this->dob,
             'country' => $this->country,
             'city' => $this->city,
-            'f_dob' => $this->f_dob,
+//            'f_dob' => $this->f_dob,
             'f_country' => $this->f_country,
             'f_city' => $this->f_city,
             'test_center' => $this->test_center,

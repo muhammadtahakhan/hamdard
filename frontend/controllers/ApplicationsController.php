@@ -15,6 +15,8 @@ use yii\helpers\ArrayHelper;
  */
 class ApplicationsController extends Controller
 {
+//     public $enableCsrfValidation = false;
+
     /**
      * @inheritdoc
      */
@@ -65,6 +67,28 @@ class ApplicationsController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+    
+    
+    public function actionSample()
+        {
+        if (Yii::$app->request->isAjax) {
+//             $this->enableCsrfValidation = false;
+//            $data = Yii::$app->request->post();
+//            $searchname= explode(":", $data['searchname']);
+//            $searchby= explode(":", $data['searchby']);
+//            $searchname= $searchname[0];
+//            $searchby= $searchby[0];
+//            $search = // your logic;
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return [
+                'search' => '$search',
+                'code' => 100,
+            ];
+              
+            }
+        }
+    
+    
 
     /**
      * Creates a new Applications model.
@@ -75,6 +99,7 @@ class ApplicationsController extends Controller
     {
         $model = new Applications();
      
+               
         $time = new \DateTime('now');
          $cyear = $time->format('Y');
         $today = $time->format('Y-m-d');
@@ -132,11 +157,11 @@ class ApplicationsController extends Controller
 //            print_r($model->total_marks);echo "<br />";
 //            print_r($model->obtained);echo "<br />";
 //            print_r($model->percentage);echo "<br />";
-            print_r($model->boarduni);echo "<br />";
+//            print_r($model->boarduni);echo "<br />";
             
 //                Preferances
 //              print_r($model->preferance);echo "<br />";
-            exit();
+//            exit();
                 
 //            echo $model->preferance."<br />";
 //            echo $model->campus."<br />";
@@ -145,16 +170,17 @@ class ApplicationsController extends Controller
 //            echo $model->campus."<br />";
                               
             
-            exit();
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->application_id]);
+//            exit();
+          if($model->save()){
+//            return $this->redirect(['view', 'id' => $model->application_id]);
+          return $this->redirect(['index']);}
         } else {
             
            
             $nationality=ArrayHelper::map(\backend\models\Nationality::find()->all(), 'nationality_id', 'name');
-             $country=ArrayHelper::map(\backend\models\Country::find()->all(), 'country_id', 'name');
-              $city=ArrayHelper::map(\backend\models\City::find()->all(), 'city_id', 'name');
-               $boarduni=ArrayHelper::map(\backend\models\BoardUniversity::find()->all(), 'board_uni_id', 'name');
+            $country=ArrayHelper::map(\backend\models\Country::find()->all(), 'country_id', 'name');
+            $city=ArrayHelper::map(\backend\models\City::find()->all(), 'city_id', 'name');
+            $boarduni=ArrayHelper::map(\backend\models\BoardUniversity::find()->all(), 'board_uni_id', 'name');
             
             return $this->render('create', [
                 'model' => $model,
