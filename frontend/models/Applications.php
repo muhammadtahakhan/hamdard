@@ -124,4 +124,9 @@ class Applications extends \yii\db\ActiveRecord
             'print_id' => Yii::t('app', 'Print ID'),
         ];
     }
+    
+    
+    
+    
+    
 }

@@ -499,7 +499,18 @@ use yii\widgets\ActiveForm;
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Test Center for Biological Sciences : </label>
+                                        <?php
+                                        foreach($test_center as $center){ ?>
                                          <div class="radio">
+                                            <label>
+                                                <input type="radio" name="Applications[test_center]" value="<?=$center->test_center_id?>" checked>
+                                              <?=$center->name?>
+                                            </label>
+                                        </div>
+                                            
+                                    <?php    }
+                                        ?>
+<!--                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="Applications[test_center]" value="0" checked>
                                               Karachi
@@ -516,7 +527,7 @@ use yii\widgets\ActiveForm;
                                                     <input type="radio" name="Applications[test_center]" value="2">
                                                  Blochistan
                                                 </label>
-                                            </div>
+                                            </div>-->
                                     </div>
                                 </div>
                                

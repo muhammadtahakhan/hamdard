@@ -10,7 +10,7 @@ $this->title = Yii::t('app', 'Create Applications');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Applications'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="applications-create">
+<div class='applications-create'>
 
     <!--<h1><?= Html::encode($this->title) ?></h1>-->
 
@@ -20,7 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'country'=>$country,
         'city'=>$city,
         'preferance'=>$preferance,
-        'boarduni'=>$boarduni
+        'boarduni'=>$boarduni,
+        'test_center'=>$test_center
     ]) ?>
 
 </div>
+
