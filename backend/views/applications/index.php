@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Applications'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?php // echo  Html::a(Yii::t('app', 'Create Applications'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'print_id',
             // 'bpm_session',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{update}'],
         ],
     ]); ?>
 </div>

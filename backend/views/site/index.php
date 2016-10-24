@@ -1,5 +1,5 @@
 <?php
-
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -44,7 +44,7 @@ $this->title = 'My Yii Application';
                       <i class="fa fa-files-o"></i>
                       </span>
   <div class="info-box-content">
-    <span class="info-box-text">Total Applications</span>
+      <span class="info-box-text"><a href="<?= Url::to(['applications/index']); ?>">Total Applications</a></span>
     <span class="info-box-number"><?= $totalapplications ?></span>
   </div><!-- /.info-box-content -->
 </div><!-- /.info-box -->
