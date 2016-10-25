@@ -48,7 +48,7 @@ use yii\widgets\ActiveForm;
                             <legend>Applicant's Info</legend>
                             <div class="row">
                                 <div class="col-lg-6">
-<!--                                   <div class="form-group">  Date input 
+                                   <div class="form-group">  Date input 
                                         <label class="control-label" for="date">Date</label>
                                         <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
                                       </div>
@@ -56,7 +56,7 @@ use yii\widgets\ActiveForm;
                                         <label for="exampleInputEmail1">Name</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" placeholder="Enter email">
                                         
-                                     </div>-->
+                                     </div>
                                       
                                       <?= $form->field($model, 'name', ['template' => 
                                            "<div class='form-group'>
@@ -226,7 +226,7 @@ use yii\widgets\ActiveForm;
                             </div>
                         </fieldset>
                        
-<fieldset>
+                         <fieldset>
                             <legend>Academic Records</legend>
                             <div class="row">
                                 <div class="table-responsive col-lg-12">
@@ -334,11 +334,11 @@ use yii\widgets\ActiveForm;
                             <legend>Preference Details</legend>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    Applications[campus]
+                                    <!--Applications[campus]-->
                                     
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
-                                        <select class="form-control" name="Applications[preferance][]">
+                                        <select id="preferance1" class="form-control" name="Applications[preferance][]">
                                    <?php
                                       foreach ($preferance as $mypre){
 //                                          print_r($mypre->offer_id)."<br />";
@@ -359,7 +359,7 @@ use yii\widgets\ActiveForm;
                                      
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
-                                        <select class="form-control" onchange="apreferance()" name="Applications[preferance][]">
+                                        <select id="preferance2" class="form-control" onchange="apreferance()" name="Applications[preferance][]">
                                    <?php
                                       foreach ($preferance as $mypre){
 //                                          print_r($mypre->offer_id)."<br />";
@@ -380,7 +380,7 @@ use yii\widgets\ActiveForm;
                                      
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
-                                        <select class="form-control" name="Applications[preferance][]">
+                                        <select id="preferance3" class="form-control" name="Applications[preferance][]">
                                    <?php
                                       foreach ($preferance as $mypre){
 //                                          print_r($mypre->offer_id)."<br />";
@@ -401,7 +401,7 @@ use yii\widgets\ActiveForm;
                                      
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
-                                        <select class="form-control" name="Applications[preferance][]">
+                                        <select id="preferance4" class="form-control" name="Applications[preferance][]">
                                    <?php
                                       foreach ($preferance as $mypre){
 //                                          print_r($mypre->offer_id)."<br />";
@@ -422,7 +422,7 @@ use yii\widgets\ActiveForm;
                                      
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
-                                        <select class="form-control" name="Applications[preferance][]">
+                                        <select id="preferance5" class="form-control" name="Applications[preferance][]">
                                    <?php
                                       foreach ($preferance as $mypre){
 //                                          print_r($mypre->offer_id)."<br />";
@@ -691,6 +691,123 @@ $('#applications-email').on('blur', function () {
   });  
   }
 });
+
+
+$("#preferance1").change(function(){
+//$('#preferance1').find(":selected");
+ var select1 = document.getElementById('preferance1').value;
+ var select2 = document.getElementById('preferance2');
+ var select3 = document.getElementById('preferance3');
+ var select4 = document.getElementById('preferance4');
+ var select5 = document.getElementById('preferance5');
+// console.log(select1);
+ 
+ $('#preferance2').children().attr("disabled", false);
+ $('#preferance2')
+    .find('[value='+select1+']').attr("disabled", true);
+    
+    $('#preferance3').children().attr("disabled", false);
+ $('#preferance3')
+    .find('[value='+select1+']').attr("disabled", true);
+    
+    $('#preferance4').children().attr("disabled", false);
+ $('#preferance4')
+    .find('[value='+select1+']').attr("disabled", true);
+    
+    $('#preferance5').children().attr("disabled", false);
+ $('#preferance5')
+    .find('[value='+select1+']').attr("disabled", true);
+
+
+});
+
+
+
+
+
+$("#preferance2").change(function(){
+//$('#preferance1').find(":selected");
+ var select1 = document.getElementById('preferance1').value;
+ var select2 = document.getElementById('preferance2').value;
+ var select3 = document.getElementById('preferance3').value;
+ var select4 = document.getElementById('preferance4').value;
+ var select5 = document.getElementById('preferance5').value;
+// console.log(select1);
+ 
+ $('#preferance3').children().attr("disabled", false);
+ $('#preferance3').find('[value='+select1+']').attr("disabled", true);
+ $('#preferance3').find('[value='+select2+']').attr("disabled", true);
+ 
+ 
+ $('#preferance4').children().attr("disabled", false);
+ $('#preferance4').find('[value='+select1+']').attr("disabled", true);
+ $('#preferance4').find('[value='+select2+']').attr("disabled", true);
+ 
+ 
+ $('#preferance5').children().attr("disabled", false);
+ $('#preferance5').find('[value='+select1+']').attr("disabled", true);
+ $('#preferance5').find('[value='+select2+']').attr("disabled", true);
+  
+
+
+});
+
+
+
+$("#preferance3").change(function(){
+//$('#preferance1').find(":selected");
+ var select1 = document.getElementById('preferance1').value;
+ var select2 = document.getElementById('preferance2').value;
+ var select3 = document.getElementById('preferance3').value;
+ var select4 = document.getElementById('preferance4').value;
+ var select5 = document.getElementById('preferance5').value;
+// console.log(select1);
+ 
+ $('#preferance4').children().attr("disabled", false);
+ $('#preferance4').find('[value='+select1+']').attr("disabled", true);
+ $('#preferance4').find('[value='+select2+']').attr("disabled", true);
+ $('#preferance4').find('[value='+select3+']').attr("disabled", true);
+ 
+ 
+ $('#preferance5').children().attr("disabled", false);
+ $('#preferance5').find('[value='+select1+']').attr("disabled", true);
+ $('#preferance5').find('[value='+select2+']').attr("disabled", true);
+ $('#preferance5').find('[value='+select3+']').attr("disabled", true);
+ 
+ 
+});
+
+
+
+
+$("#preferance4").change(function(){
+//$('#preferance1').find(":selected");
+ var select1 = document.getElementById('preferance1').value;
+ var select2 = document.getElementById('preferance2').value;
+ var select3 = document.getElementById('preferance3').value;
+ var select4 = document.getElementById('preferance4').value;
+ var select5 = document.getElementById('preferance5').value;
+// console.log(select1);
+ 
+ $('#preferance5').children().attr("disabled", false);
+ $('#preferance5').find('[value='+select1+']').attr("disabled", true);
+ $('#preferance5').find('[value='+select2+']').attr("disabled", true);
+ $('#preferance5').find('[value='+select3+']').attr("disabled", true);
+ $('#preferance5').find('[value='+select4+']').attr("disabled", true);
+ 
+ 
+ 
+ 
+});
+
+
+
+
+
+
+
+
+
 
 
 </script>
