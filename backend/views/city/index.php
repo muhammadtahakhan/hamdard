@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'country_id',
             'name',
             'slug',
-            'enable_flag',
+//            'enable_flag',
             // 'last_update_date',
             // 'last_updated_by',
             // 'creation_date',

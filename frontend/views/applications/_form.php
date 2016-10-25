@@ -660,7 +660,37 @@ function apreferance(){
 
 </script>
 <script>
-$(document).ready(function() {
-    $('#exampleInputEmail').formValidation();
+//$(document).ready(function() {
+//    $('#exampleInputEmail').formValidation();
+//});
+
+
+$('#applications-email').on('blur', function () {
+
+     var lrg = $("#applications-email").val().trim().length;
+      if(lrg != 0){
+    $.ajax({
+       url: '<?php echo Yii::$app->getUrlManager()->createUrl('applications/validate')  ; ?>',
+       type: 'GET',
+//       dataType : "json",
+       data: {
+                 email: $("#applications-email").val() , 
+                 _csrf : '<?=Yii::$app->request->getCsrfToken()?>'
+             },
+       success: function(data) {
+          console.log(data);
+          
+          if(data=='FALSE'){
+              alert($("#applications-email").val()+' Alrady been taken');
+              $("#applications-email").addClass('error');
+              $("#applications-email").val('') ;
+              $("#applications-email-error").css({ 'display': 'inline-block' });
+          }
+          
+       }
+  });  
+  }
 });
+
+
 </script>

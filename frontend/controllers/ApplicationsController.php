@@ -58,6 +58,31 @@ class ApplicationsController extends Controller
 //        ]);
         
     }
+    
+    /**
+     * Lists all Applications models.
+     * @return mixed
+     */
+    public function actionValidate()
+    {
+//        $searchModel = new ApplicationsSearch();
+//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+//        if (Yii::$app->request->isAjax) {
+//        Yii::$app->response->format = Response::FORMAT_JSON;
+            $email = $_GET['email'];
+            $estatus = Applications::find()->where(['email'=>$email])->count();
+//            print_r($estatus);
+            if($estatus==0){
+                return 'TRUE';
+            }else{
+                return 'FALSE';
+            }
+ 
+        
+//    }
+       
+        
+    }
 
     /**
      * Displays a single Applications model.
