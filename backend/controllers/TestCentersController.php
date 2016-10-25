@@ -89,7 +89,8 @@ class TestCentersController extends Controller
             $model->last_update_date=date("Y/m/d");
             $model->last_update_login=0;
             $model->save();
-            return $this->redirect(['view', 'id' => $model->test_center_id]);
+            return $this->redirect(['index']);
+//            return $this->redirect(['view', 'id' => $model->test_center_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -108,7 +109,8 @@ class TestCentersController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->test_center_id]);
+            return $this->redirect(['index']);
+//            return $this->redirect(['view', 'id' => $model->test_center_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

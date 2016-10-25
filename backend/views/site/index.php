@@ -2,22 +2,22 @@
 use yii\helpers\Url;
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Admission Application';
 ?>
  <div class="row">
-     <div class="col-lg-4">
+<!--     <div class="col-lg-4">
          
 <div class="site-index">
 <div class="info-box">
-  <!-- Apply any bg-* class to to the icon to color it -->
+   Apply any bg-* class to to the icon to color it 
             <span class="info-box-icon bg-green">
           <i class="fa fa-flag-o"></i>
           </span>
   <div class="info-box-content">
-<!--    <span class="info-box-text">Likes</span>
-    <span class="info-box-number">93,139</span>-->
-  </div><!-- /.info-box-content -->
-</div><!-- /.info-box -->
+    <span class="info-box-text">Likes</span>
+    <span class="info-box-number">93,139</span>
+  </div> /.info-box-content 
+</div> /.info-box 
      </div>
      </div>
      
@@ -25,15 +25,15 @@ $this->title = 'My Yii Application';
          
 <div class="site-index">
 <div class="info-box">
-  <!-- Apply any bg-* class to to the icon to color it -->
+   Apply any bg-* class to to the icon to color it 
   <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
   <div class="info-box-content">
-<!--    <span class="info-box-text">New Applications</span>
-    <span class="info-box-number">93,139</span>-->
-  </div><!-- /.info-box-content -->
-</div><!-- /.info-box -->
+    <span class="info-box-text">New Applications</span>
+    <span class="info-box-number">93,139</span>
+  </div> /.info-box-content 
+</div> /.info-box 
      </div>
-     </div>
+     </div>-->
      
      <div class="col-lg-4">
          

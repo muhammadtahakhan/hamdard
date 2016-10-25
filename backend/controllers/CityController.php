@@ -88,8 +88,8 @@ class CityController extends Controller
             $model->last_update_date=date("Y/m/d");
             $model->last_update_login=0;
             $model->save();
-            
-            return $this->redirect(['view', 'id' => $model->city_id]);
+            return $this->redirect(['index']);
+//            return $this->redirect(['view', 'id' => $model->city_id]);
         } else {
             $country=ArrayHelper::map(\backend\models\Country::find()->all(), 'country_id', 'name');
             return $this->render('create', [
@@ -117,8 +117,8 @@ class CityController extends Controller
             $model->last_update_date=date("Y/m/d");
             $model->last_update_login=0;
             $model->save();
-            
-            return $this->redirect(['view', 'id' => $model->city_id]);
+            return $this->redirect(['index']);
+//            return $this->redirect(['view', 'id' => $model->city_id]);
         } else {
              $country=ArrayHelper::map(\backend\models\Country::find()->all(), 'country_id', 'name');
             return $this->render('update', [

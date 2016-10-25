@@ -89,7 +89,8 @@ class SessionController extends Controller
             
             
             if($model->save()){
-            return $this->redirect(['view', 'id' => $model->session_id]);
+                return $this->redirect(['index']);
+//            return $this->redirect(['view', 'id' => $model->session_id]);
             }
         } else {
             return $this->render('create', [
@@ -116,7 +117,8 @@ class SessionController extends Controller
             $model->last_update_date=date("Y/m/d");
             $model->last_update_login=0;
             $model->save();
-            return $this->redirect(['view', 'id' => $model->session_id]);
+            return $this->redirect(['index']);
+//            return $this->redirect(['view', 'id' => $model->session_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

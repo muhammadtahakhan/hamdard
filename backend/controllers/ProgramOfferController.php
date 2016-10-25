@@ -126,7 +126,8 @@ class ProgramOfferController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->offer_id]);
+            return $this->redirect(['index']);
+//            return $this->redirect(['view', 'id' => $model->offer_id]);
         } else {
              $programs=ArrayHelper::map(\backend\models\Programs::find()->all(), 'program_id', 'name');
             $sessions=ArrayHelper::map(\backend\models\Session::find()->all(), 'session_id', 'name');

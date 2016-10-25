@@ -88,7 +88,8 @@ class CountryController extends Controller
             $model->last_update=date("Y/m/d");
             $model->last_update_login=0;
             $model->save();
-            return $this->redirect(['view', 'id' => $model->country_id]);
+            return $this->redirect(['index']);
+//            return $this->redirect(['view', 'id' => $model->country_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -115,7 +116,8 @@ class CountryController extends Controller
             $model->last_update=date("Y/m/d");
             $model->last_update_login=0;
             $model->save();
-            return $this->redirect(['view', 'id' => $model->country_id]);
+            return $this->redirect(['index']);
+//            return $this->redirect(['view', 'id' => $model->country_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
