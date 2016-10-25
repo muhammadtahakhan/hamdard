@@ -261,7 +261,19 @@ class ApplicationsController extends Controller
         
         }
     
+ /**
+     * Creates a new Applications model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed     * If creation is successful, the browser will be redirected to the 'view' page.
 
+     */
+    public function actionCong()
+    {
+        
+        return $this->render('cong');
+    }
+        
+        
     /**
      * Creates a new Applications model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -413,8 +425,8 @@ class ApplicationsController extends Controller
                           
                           
                      // get your HTML raw content without any layouts or scripts
-       
-                 return $this->redirect(["applications/pdf", 'id'=> $md5email->print_id]);
+//                            return $this->render('cong');
+                 return $this->redirect(["applications/cong"]);
 //          return $this->redirect(['index']);
           
                         }else{
