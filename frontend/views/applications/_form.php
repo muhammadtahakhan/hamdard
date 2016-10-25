@@ -44,7 +44,7 @@ use yii\widgets\ActiveForm;
                          <?php $form = ActiveForm::begin([
                              'id'=>'wizard_example'
                          ]); ?>
-<!--                      <fieldset>
+                    <fieldset>
                             <legend>Applicant's Info</legend>
                             <div class="row">
                                 <div class="col-lg-6">
@@ -321,7 +321,7 @@ use yii\widgets\ActiveForm;
                                            name="no-js-clicked" value="finish"/>
                                 </noscript>
                             </div>
-                        </fieldset>-->
+                        </fieldset>
                          <fieldset>
                             <legend>Preference Details</legend>
                             <div class="row">

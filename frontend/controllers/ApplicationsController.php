@@ -418,7 +418,7 @@ class ApplicationsController extends Controller
                             ->setFrom('from@domain.com')
                             ->setTo($model->email)
                             ->setSubject('admission Form')
-                            ->setTextBody('Plain text content'.Yii::$app->getUrlManager()->createUrl('applications/pdf'))
+                            ->setTextBody('Plain text content'.Url::toRoute(['applications/pdf'])."&id=".$md5email->print_id)
                             ->setHtmlBody('<b>HTML content</b>')
                             ->send();
 //                          // bpm_session Applicationn;
