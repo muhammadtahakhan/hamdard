@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\Url;
+
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Applications */
@@ -42,14 +44,17 @@ use yii\widgets\ActiveForm;
 
                     <!--<form id="wizard_example" action="">-->
                          <?php $form = ActiveForm::begin([
-                             'id'=>'wizard_example'
+                             'id'=>'wizard_example',
+                              'options' => [
+                                'enctype' => 'multipart/form-data',
+                            ],
                          ]); ?>
                     <fieldset>
                             <legend>Applicant's Info</legend>
                             <div class="row">
                                 <div class="col-lg-6">
                                   
-                                      
+                                    
                                       <?= $form->field($model, 'name', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
@@ -88,12 +93,20 @@ use yii\widgets\ActiveForm;
                                              </div>"
                                       ])->textInput(array('placeholder' => 'Enter Phone Number', 'min'=>'1', 'maxlength'=>'11', 'type'=>'number', 'required'=>'true'));  ?>
 
-
+                                            <?= $form->field($model, 'address', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->textInput(array('placeholder' => 'Enter Address', 'required'=>'true'));  ?>
 
  
                                     
                                 </div>
                                   <div class="col-lg-6">
+                                      <div class="row">
+                                          <div class="col-lg-6 vcenter"> <br /><br /><br /><?= $form->field($model, 'imageFile')->fileInput(['id'=>'files']) ?></div> <div class="col-lg-6">  <img id="image" src="<?= Url::to('@web/images/images.png')?>" class="img-thumbnail"/></div>
+                                      </div>
+                                      
                                      
                                       <?php $model->gender = 'male'; ?>
                                       <?= $form->field($model, 'gender', ['template' => 
@@ -122,13 +135,9 @@ use yii\widgets\ActiveForm;
                                       ])->dropDownList($city, ['prompt'=>'Choose...', 'required'=>'true']);  ?>
                                       
                                        
-                                      <?= $form->field($model, 'address', ['template' => 
-                                           "<div class='form-group'>
-                                                {label}\n{input}\n{hint}\n{error}
-                                             </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Address', 'required'=>'true'));  ?>
+                                     
  
-                                    
+                                      <br />
                                 </div>
                               
                           
@@ -798,7 +807,17 @@ $("#addrecord").click(function(){
 
 
 
+document.getElementById("files").onchange = function () {
+    var reader = new FileReader();
 
+    reader.onload = function (e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("image").src = e.target.result;
+    };
+
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+};
 
 
 

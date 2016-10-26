@@ -13,6 +13,7 @@ use frontend\models\ProgramPreferance;
 use frontend\models\AcademicRecords;
 use kartik\mpdf\Pdf;
 use yii\helpers\Url;
+use yii\web\UploadedFile;
 /**
  * ApplicationsController implements the CRUD actions for Applications model.
  */
@@ -297,6 +298,8 @@ class ApplicationsController extends Controller
 //         echo  "</pre>";
          
         if ($model->load(Yii::$app->request->post())) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+           
 //                sturdent info 
 //            echo $model->name."<br />">
 //            echo $model->nic."<br />";
@@ -359,6 +362,12 @@ class ApplicationsController extends Controller
             
 //            exit();
           if($model->save()){
+               if ($model->upload()) {
+                // file is uploaded successfully
+//                return;
+            }
+            
+//            exit();
 //            return $this->redirect(['view', 'id' => $model->application_id]);
                             foreach($model->preferance as $preferance){
 //                             echo $preferance;
