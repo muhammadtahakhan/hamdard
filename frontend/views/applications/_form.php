@@ -274,43 +274,7 @@ use yii\widgets\ActiveForm;
 
                                             </tr>
                
-                 <tr>
-                    <td> 
-                        <select class="form-control" name="Applications[qualification][]">
-                            <option value="" disabled selected>Select your option</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="Applications[subject][]" value="" />
-                    </td>
-                    <td> 
-                        <input type="date" name="Applications[passing_year][]" class="form-control" value="" />
-                    </td>
-                    <td>
-                        <select class="form-control" name="Applications[attempt][]">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                   </td>
-                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value=""/></td>
-                   <td><input name="Applications[obtained][]" type="number" class="form-control" value=""/></td>
-                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" /></td>
-                   <td> 
-                                                   
-                                                    
-                                                     <?= $form->field($model, 'boarduni[]', ['template' => 
-                                           "<div class='form-group'>
-                                                {label}\n{input}\n{hint}\n{error}
-                                             </div>"
-                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
-                   </td>
-
-                                            </tr>
+               
                                             
               
                                         </tbody>
@@ -781,21 +745,22 @@ $("#preferance4").change(function(){
 
 $("#addrecord").click(function(){
    
-    var row = `<tr> <td> 
-                        <select class="form-control" name="Applications[qualification][]">
+    var row = ` <tr>
+                    <td> 
+                        <select class="form-control" name="Applications[qualification][]" required="true">
                             <option value="" disabled selected>Select your option</option>
                             <option value="monthly">Monthly</option>
                             <option value="yearly">Yearly</option>
                         </select>
                     </td>
                     <td>
-                        <input type="text" class="form-control" name="Applications[subject][]" value="" />
+                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
                     </td>
                     <td> 
-                        <input type="date" name="Applications[passing_year][]" class="form-control"  />
+                        <input type="date" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
                     </td>
                     <td>
-                        <select class="form-control" name="Applications[attempt][]">
+                        <select class="form-control" name="Applications[attempt][]" required="true">
                                                     <option>1</option>
                                                     <option>2</option>
                                                     <option>3</option>
@@ -803,9 +768,9 @@ $("#addrecord").click(function(){
                                                     <option>5</option>
                                                 </select>
                    </td>
-                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value=""/></td>
-                   <td><input name="Applications[obtained][]" type="number" class="form-control" value=""/></td>
-                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" /></td>
+                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
                    <td> 
                                                    
                                                     

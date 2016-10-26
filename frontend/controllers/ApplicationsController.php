@@ -407,7 +407,7 @@ class ApplicationsController extends Controller
                                                 
                                                      
                         } 
-                        exit();
+//                        exit();
                         
                           $md5email = Applications::find()->where(['application_id'=>$model->application_id])->one();
                           $md5email->print_id = md5($model->application_id+$model->email);

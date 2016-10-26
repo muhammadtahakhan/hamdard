@@ -25,6 +25,7 @@ use common\widgets\Alert;
   webshims.setOptions('waitReady', false);
   webshims.setOptions('forms-ext', {types: 'date'});
   webshims.polyfill('forms forms-ext');
+  
 </script>
 
     <meta charset="<?= Yii::$app->charset ?>">
