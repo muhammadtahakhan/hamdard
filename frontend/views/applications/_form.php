@@ -248,7 +248,7 @@ use yii\widgets\ActiveForm;
                         <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
                     </td>
                     <td> 
-                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value="" required="true"/>
+                        <input type="date" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
                     </td>
                     <td>
                         <select class="form-control" name="Applications[attempt][]" required="true">
@@ -286,7 +286,7 @@ use yii\widgets\ActiveForm;
                         <input type="text" class="form-control" name="Applications[subject][]" value="" />
                     </td>
                     <td> 
-                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value="" />
+                        <input type="date" name="Applications[passing_year][]" class="form-control" value="" />
                     </td>
                     <td>
                         <select class="form-control" name="Applications[attempt][]">
@@ -792,7 +792,7 @@ $("#addrecord").click(function(){
                         <input type="text" class="form-control" name="Applications[subject][]" value="" />
                     </td>
                     <td> 
-                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value="" />
+                        <input type="date" name="Applications[passing_year][]" class="form-control"  />
                     </td>
                     <td>
                         <select class="form-control" name="Applications[attempt][]">
