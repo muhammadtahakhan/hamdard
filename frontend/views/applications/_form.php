@@ -315,6 +315,7 @@ use yii\widgets\ActiveForm;
               
                                         </tbody>
                                     </table>
+                                    <button id="addrecord" align="center">add more record</button><br /><br /><br /><br />
     </div>
                                 <noscript>
                                     <input class="nocsript-finish-btn sf-right nocsript-sf-btn" type="submit"
@@ -326,7 +327,7 @@ use yii\widgets\ActiveForm;
                             <legend>Preference Details</legend>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <!--Applications[campus]-->
+                                    Applications[campus]
                                     
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
@@ -507,24 +508,7 @@ use yii\widgets\ActiveForm;
                                             
                                     <?php    }
                                         ?>
-<!--                                         <div class="radio">
-                                            <label>
-                                                <input type="radio" name="Applications[test_center]" value="0" checked>
-                                              Karachi
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="Applications[test_center]" value="1">
-                                                  Islamabad
-                                                </label>
-                                            </div>
-                                        <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="Applications[test_center]" value="2">
-                                                 Blochistan
-                                                </label>
-                                            </div>-->
+                                        
                                     </div>
                                 </div>
                                
@@ -795,7 +779,57 @@ $("#preferance4").change(function(){
 
 
 
+$("#addrecord").click(function(){
+   
+    var row = `<tr> <td> 
+                        <select class="form-control" name="Applications[qualification][]">
+                            <option value="" disabled selected>Select your option</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="Applications[subject][]" value="" />
+                    </td>
+                    <td> 
+                        <input type="text" name="Applications[passing_year][]" id="date" class="form-control" value="" />
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value=""/></td>
+                   <td><input name="Applications[obtained][]" type="number" class="form-control" value=""/></td>
+                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" /></td>
+                   <td> 
+                                                   
+                                                    
+                                                     <div class="form-group field-applications-boarduni">
+<div class='form-group'>
+                                                
+<select id="applications-boarduni" class="form-control" name="Applications[boarduni][]">
+<option value="">Choose...</option>
+<option value="1">ss</option>
+<option value="2">aaa</option>
+<option value="3">weww</option>
+</select>
 
+<div class="help-block"></div>
+                                             </div>
+</div>                   </td>
+
+                                            </tr>`;               // Create element with HTML 
+   
+   
+   
+    $("table").append(row);      // Append the new elements
+    return false;
+});
 
 
 

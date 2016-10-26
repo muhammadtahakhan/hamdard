@@ -404,11 +404,10 @@ class ApplicationsController extends Controller
                         } else {
                         echo "academic record is not saving";    
                         }
-                         
                                                 
                                                      
                         } 
-//                        exit();
+                        exit();
                         
                           $md5email = Applications::find()->where(['application_id'=>$model->application_id])->one();
                           $md5email->print_id = md5($model->application_id+$model->email);

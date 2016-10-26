@@ -15,8 +15,8 @@ $this->title = "Application Created Success";
     
 </div>
 <script>
-history.pushState(null, null, document.title);
-window.addEventListener('popstate', function () {
-    history.pushState(null, null, document.title);
-});
+//history.pushState(null, null, document.title);
+//window.addEventListener('popstate', function () {
+//    history.pushState(null, null, document.title);
+//});
 </script>
