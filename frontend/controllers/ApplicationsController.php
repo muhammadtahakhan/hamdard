@@ -437,9 +437,10 @@ class ApplicationsController extends Controller
                  return $this->redirect(["applications/cong"]);
 //          return $this->redirect(['index']);
           
-                        }else{
-              echo "application not saving";
-          }
+                        }
+//                        else{
+//              echo "application not saving";
+//          }
         } else {
             
            

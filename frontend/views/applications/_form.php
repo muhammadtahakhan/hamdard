@@ -104,7 +104,11 @@ use yii\helpers\Url;
                                 </div>
                                   <div class="col-lg-6">
                                       <div class="row">
-                                          <div class="col-lg-6 vcenter"> <br /><br /><br /><?= $form->field($model, 'imageFile')->fileInput(['id'=>'files']) ?></div> <div class="col-lg-6">  <img id="image" src="<?= Url::to('@web/images/images.png')?>" class="img-thumbnail"/></div>
+                                          <div class=" col-lg-6 vcenter"> 
+                                              <br /><br /><br />
+                                     
+                                      <?= $form->field($model, 'imageFile')->fileInput(['id'=>'files', 'required'=>'true']) ?>
+                                          </div> <div class="col-lg-4 col-sm-12">  <img id="image" src="<?= Url::to('@web/images/images.png')?>" class="img-thumbnail"/></div>
                                       </div>
                                       
                                      
@@ -813,8 +817,24 @@ document.getElementById("files").onchange = function () {
     reader.onload = function (e) {
         // get loaded data and render thumbnail.
         document.getElementById("image").src = e.target.result;
+        
     };
-
+        var f = this.files[0]; 
+//           console.log(f.name);
+           var str = f.name;
+           var res = str.split(".");
+         var slt =  res.length;
+           console.log(res[slt-1]);
+           var ext = res[slt-1];
+           if(ext=='jpg' || ext=='jpeg,' || ext=='gif' || ext=='png'){
+//               alert("Not a Valid Image")
+           }else{
+                alert("Not a Valid Image222");
+                $("#files").addClass('error');
+              $("#files").val(''); 
+              $("#files").css({ 'display': 'inline-block' });
+           }
+           
     // read the image file as a data URL.
     reader.readAsDataURL(this.files[0]);
 };

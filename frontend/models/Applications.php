@@ -74,7 +74,7 @@ class Applications extends \yii\db\ActiveRecord
         return [
 //            [['name', 'nic', 'dob', 'email', 'mobile', 'phone', 'nationality', 'gender', 'address', 'country', 'city', 'f_name', 'f_nic', 'f_occupation', 'f_email', 'f_mobile', 'f_phone', 'f_nationality', 'f_current_address', 'f_country', 'f_city', 'campus', 'test_center', 'student_type', 'f_income', 'f_perminant_Address', 'hostal_flag', 'last_updated_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login', 'print_id'], 'required'],
             [['dob', 'last_updated_date', 'creation_date', 'qualification' , 'subject', 'passing_year', 'attempt', 'total_marks', 'obtained', 'percentage', 'boarduni', 'preferance', 'name', 'nic', 'dob', 'email', 'mobile', 'phone', 'nationality', 'gender', 'address', 'country', 'city', 'f_name', 'f_nic', 'f_occupation', 'f_email', 'f_mobile', 'f_phone', 'f_nationality', 'f_current_address', 'f_country', 'f_city', 'campus', 'test_center', 'student_type', 'f_income', 'f_perminant_Address', 'hostal_flag', 'last_updated_date', 'last_updated_by', 'creation_date', 'created_by', 'last_update_login', 'print_id'], 'safe'],
-             [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+             [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'jpg,jpeg,gif,png'],
 //            [['country', 'city', 'f_country', 'f_city', 'test_center', 'f_income', 'hostal_flag', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
 //            [['name', 'nic', 'email', 'mobile', 'phone', 'nationality', 'f_name', 'f_nic', 'f_email', 'f_mobile', 'f_phone', 'f_nationality', 'campus', 'student_type'], 'string', 'max' => 20],
 //            [['gender'], 'string', 'max' => 8],
