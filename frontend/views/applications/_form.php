@@ -245,6 +245,7 @@ use yii\helpers\Url;
                 <th>Marks Obtained </th>
                 <th>Percentage</th>
                 <th>Board / University</th>
+                <th>Remove This </th>
                 
             </thead>
             <tbody>
@@ -284,7 +285,7 @@ use yii\helpers\Url;
                                              </div>"
                                       ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
                    </td>
-
+                  <td align="center"> <i class="fa fa-remove fa-lg"></i></td>
                                             </tr>
                
                
@@ -292,7 +293,9 @@ use yii\helpers\Url;
               
                                         </tbody>
                                     </table>
-                                    <button id="addrecord" align="center">add more record</button><br /><br /><br /><br />
+                                    <button id="addrecord" align="center">add more record</button>
+                                    <button id="remove" align="center">Remove Last</button>
+                                    <br /><br /><br /><br />
     </div>
                                 <noscript>
                                     <input class="nocsript-finish-btn sf-right nocsript-sf-btn" type="submit"
@@ -331,7 +334,7 @@ use yii\helpers\Url;
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
                                         <select id="preferance2" class="form-control" onchange="apreferance()" name="Applications[preferance][]">
-                                  <option value="" disabled selected>Select...</option>
+                                  <!--<option value="" disabled selected>Select...</option>-->
                                        <?php
                                       foreach ($preferance as $mypre){
 //                                          print_r($mypre->offer_id)."<br />";
@@ -758,7 +761,7 @@ $("#preferance4").change(function(){
 
 $("#addrecord").click(function(){
    
-    var row = ` <tr>
+    var row = `  <tr>
                     <td> 
                         <select class="form-control" name="Applications[qualification][]" required="true">
                             <option value="" disabled selected>Select your option</option>
@@ -800,13 +803,14 @@ $("#addrecord").click(function(){
 <div class="help-block"></div>
                                              </div>
 </div>                   </td>
+                   <td align="center"> <i onclick="removeme(this)" class="fa fa-remove fa-lg"></i></td>
 
-                                            </tr>`;               // Create element with HTML 
+                                            </tr> `;               // Create element with HTML 
    
    
    
     $("table").append(row);      // Append the new elements
-    return false;
+   return false;
 });
 
 
@@ -839,6 +843,20 @@ document.getElementById("files").onchange = function () {
     reader.readAsDataURL(this.files[0]);
 };
 
+$("#remove").on('click', function(){
+    var rowCount = $('table tr').length;
+    alert(rowCount);
+    if(rowCount!=1){
+     $('table tr:last').remove();}
+      return false;
+});
 
+ function removeme(item){
+     var row = item.parentElement;
+     var tab = row.parentElement;
+     var tabl = tab.parentElement;
+     tabl.removeChild(tab);
+//    alert("remove me");
+};
 
 </script>

@@ -16,11 +16,14 @@ use common\widgets\Alert;
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" media="screen, projection">
+    
     <!--http://stackoverflow.com/questions/22983013/how-to-get-html-5-input-type-date-working-in-firefox-and-or-ie-10-->
     <!-- cdn for modernizr, if you haven't included it already -->
 <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
 <!-- polyfiller file to detect and load polyfills -->
-<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script src="https://cdn.jsdelivr.net/webshim/1.15.10/polyfiller.js"></script>
 <script>
   webshims.setOptions('waitReady', false);
   webshims.setOptions('forms-ext', {types: 'date'});
