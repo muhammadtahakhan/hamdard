@@ -66,7 +66,11 @@ use common\widgets\Alert;
                     todayHighlight: true,
                     autoclose: true,
                   };
-                  date_input.datepicker(options);
+                  date_input.datepicker({
+                       format: " yyyy",
+                        viewMode: "years", 
+                        minViewMode: "years"
+                  });
                 })
             </script>
             
