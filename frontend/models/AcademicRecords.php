@@ -22,9 +22,12 @@ use Yii;
  * @property string $creation_date
  * @property integer $created_by
  * @property integer $last_update_login
+ * @property string $test
  */
 class AcademicRecords extends \yii\db\ActiveRecord
 {
+//   public $qualification;
+//   public $test;
     /**
      * @inheritdoc
      */
@@ -41,7 +44,7 @@ class AcademicRecords extends \yii\db\ActiveRecord
         return [
             [['application_id', 'subject', 'passing_year', 'total_marks', 'marks_obtained', 'percentage', 'uni_board', 'attemps'], 'required'],
             [['application_id', 'total_marks', 'marks_obtained', 'percentage', 'attemps', 'last_updated_by', 'created_by', 'last_update_login'], 'integer'],
-            [['passing_year', 'last_update_date', 'creation_date'], 'safe'],
+            [['passing_year', 'last_update_date', 'creation_date', 'qualification'], 'safe'],
             [['subject', 'uni_board'], 'string', 'max' => 20],
             [['enable_flag'], 'string', 'max' => 2],
         ];

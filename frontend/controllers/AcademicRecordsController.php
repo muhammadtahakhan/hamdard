@@ -66,7 +66,7 @@ class AcademicRecordsController extends Controller
         $model = new AcademicRecords();
 
         if ($model->load(Yii::$app->request->post())) {
-            
+           
             $model->created_by=0;
             $model->creation_date=date("Y/m/d");
             $model->last_updated_by=0;

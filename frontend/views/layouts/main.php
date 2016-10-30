@@ -57,8 +57,10 @@ use common\widgets\Alert;
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
             <script>
+                
                 $(document).ready(function(){
                   var date_input=$('input[id="date"]'); //our date input has the name "date"
+                   var dob_input=$('input[id="dob"]');
                   var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
                   var options={
                     format: 'yyyy-mm-dd',
@@ -71,6 +73,7 @@ use common\widgets\Alert;
                         viewMode: "years", 
                         minViewMode: "years"
                   });
+                  dob_input.datepicker(options);
                 })
             </script>
             

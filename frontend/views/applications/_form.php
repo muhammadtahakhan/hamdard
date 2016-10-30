@@ -54,7 +54,7 @@ use yii\helpers\Url;
                             <div class="row">
                                 <div class="col-lg-6">
                                   
-                                    <input type="text" id="date" />
+                                        
                                       <?= $form->field($model, 'name', ['template' => 
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
@@ -71,7 +71,7 @@ use yii\helpers\Url;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->textInput(array('placeholder' => 'Enter Date of Birth', 'id'=>'date', 'required'=>'true'));  ?>
+                                      ])->textInput(array('placeholder' => 'Enter Date of Birth', 'id'=>'dob', 'required'=>'true'));  ?>
 
                                         
 
@@ -231,7 +231,7 @@ use yii\helpers\Url;
                             </div>
                         </fieldset>
                        
-                         <fieldset>
+                            <fieldset>
                             <legend>Academic Records</legend>
                             <div class="row">
                                 <div class="table-responsive col-lg-12">
@@ -251,154 +251,6 @@ use yii\helpers\Url;
             <tbody>
                
                 <tr>
-                    <td> 
-                        <select class="form-control" name="Applications[qualification][]" required="true">
-                            <option value="" disabled selected>Select your option</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
-                    </td>
-                    <td> 
-                        <input type="month" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
-                    </td>
-                    <td>
-                        <select class="form-control" name="Applications[attempt][]" required="true">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                   </td>
-                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
-                   <td> 
-                                                   
-                                                    
-                                                     <?= $form->field($model, 'boarduni[]', ['template' => 
-                                           "<div class='form-group'>
-                                                {label}\n{input}\n{hint}\n{error}
-                                             </div>"
-                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
-                   </td>
-                  <td align="center"> </td>
-                                            </tr>
-                  <tr>
-                    <td> 
-                        <select class="form-control" name="Applications[qualification][]" required="true">
-                            <option value="" disabled selected>Select your option</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
-                    </td>
-                    <td> 
-                        <input type="month" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
-                    </td>
-                    <td>
-                        <select class="form-control" name="Applications[attempt][]" required="true">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                   </td>
-                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
-                   <td> 
-                                                   
-                                                    
-                                                     <?= $form->field($model, 'boarduni[]', ['template' => 
-                                           "<div class='form-group'>
-                                                {label}\n{input}\n{hint}\n{error}
-                                             </div>"
-                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
-                   </td>
-                  <td align="center"> </td>
-                                            </tr> 
-                      <tr>
-                    <td> 
-                        <select class="form-control" name="Applications[qualification][]" required="true">
-                            <option value="" disabled selected>Select your option</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
-                    </td>
-                    <td> 
-                        <input type="month" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
-                    </td>
-                    <td>
-                        <select class="form-control" name="Applications[attempt][]" required="true">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                   </td>
-                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
-                   <td> 
-                                                   
-                                                    
-                                                     <?= $form->field($model, 'boarduni[]', ['template' => 
-                                           "<div class='form-group'>
-                                                {label}\n{input}\n{hint}\n{error}
-                                             </div>"
-                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
-                   </td>
-                  <td align="center"> </td>
-                                            </tr>
-                     <tr>
-                    <td> 
-                        <select class="form-control" name="Applications[qualification][]" required="true">
-                            <option value="" disabled selected>Select your option</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
-                    </td>
-                    <td> 
-                        <input type="month" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
-                    </td>
-                    <td>
-                        <select class="form-control" name="Applications[attempt][]" required="true">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                   </td>
-                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
-                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
-                   <td> 
-                                                   
-                                                    
-                                                     <?= $form->field($model, 'boarduni[]', ['template' => 
-                                           "<div class='form-group'>
-                                                {label}\n{input}\n{hint}\n{error}
-                                             </div>"
-                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
-                   </td>
-                  <td align="center"> </td>
-                                            </tr>
-                    <tr>
                     <td> 
                         <select class="form-control" name="Applications[qualification][]" required="true">
                             <option value="" disabled selected>Select your option</option>
@@ -431,7 +283,155 @@ use yii\helpers\Url;
                                            "<div class='form-group'>
                                                 {label}\n{input}\n{hint}\n{error}
                                              </div>"
-                                      ])->dropDownList($boarduni, ['prompt'=>'Choose...'])->label(FALSE); ?>
+                                      ])->dropDownList($boarduni, [])->label(FALSE); ?>
+                   </td>
+                  <td align="center"> </td>
+                                            </tr>
+                  <tr>
+                    <td> 
+                        <select class="form-control" name="Applications[qualification][]" required="true">
+                            <option value="" disabled selected>Select your option</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
+                    </td>
+                    <td> 
+                        <input type="text" id="date" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]" required="true">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
+                   <td> 
+                                                   
+                                                    
+                                                     <?= $form->field($model, 'boarduni[]', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($boarduni, [])->label(FALSE); ?>
+                   </td>
+                  <td align="center"> </td>
+                                            </tr> 
+                      <tr>
+                    <td> 
+                        <select class="form-control" name="Applications[qualification][]" required="true">
+                            <option value="" disabled selected>Select your option</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
+                    </td>
+                    <td> 
+                        <input type="text" id="date" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]" required="true">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
+                   <td> 
+                                                   
+                                                    
+                                                     <?= $form->field($model, 'boarduni[]', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($boarduni, [])->label(FALSE); ?>
+                   </td>
+                  <td align="center"> </td>
+                                            </tr>
+                     <tr>
+                    <td> 
+                        <select class="form-control" name="Applications[qualification][]" required="true">
+                            <option value="" disabled selected>Select your option</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
+                    </td>
+                    <td> 
+                        <input type="text" id="date" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]" required="true">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
+                   <td> 
+                                                   
+                                                    
+                                                     <?= $form->field($model, 'boarduni[]', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($boarduni, [])->label(FALSE); ?>
+                   </td>
+                  <td align="center"> </td>
+                                            </tr>
+                    <tr>
+                    <td> 
+                        <select class="form-control" name="Applications[qualification][]" required="true">
+                            <option value="" disabled selected>Select your option</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
+                    </td>
+                    <td> 
+                        <input type="text" id="date" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
+                    </td>
+                    <td>
+                        <select class="form-control" name="Applications[attempt][]" required="true">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                   </td>
+                   <td><input name="Applications[total_marks][]" type="number" type="text" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[obtained][]" type="number" class="form-control" value="" required="true"/></td>
+                   <td><input name="Applications[percentage][]" type="number" class="form-control" value="" required="true" /></td>
+                   <td> 
+                                                   
+                                                    
+                                       <?= $form->field($model, 'boarduni[]', ['template' => 
+                                           "<div class='form-group'>
+                                                {label}\n{input}\n{hint}\n{error}
+                                             </div>"
+                                      ])->dropDownList($boarduni, [])->label(FALSE); ?>
                    </td>
                   <td align="center"> </td>
                                             </tr>                          
@@ -460,7 +460,7 @@ use yii\helpers\Url;
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
                                         <select id="preferance1" class="form-control" name="Applications[preferance][]">
-                                  <option value="" disabled selected>Select...</option>
+                                  <!--<option value="" disabled selected>Select...</option>-->
                                         <?php
                                       foreach ($preferance as $mypre){
 //                                          print_r($mypre->offer_id)."<br />";
@@ -482,7 +482,7 @@ use yii\helpers\Url;
                                      <div class="form-group">
                                         <label for="exampleInputEmail1">First Preferance</label>
                                         <select id="preferance2" class="form-control" onchange="apreferance()" name="Applications[preferance][]">
-                                  <!--<option value="" disabled selected>Select...</option>-->
+                                  <option value="" disabled selected>Select...</option>
                                        <?php
                                       foreach ($preferance as $mypre){
 //                                          print_r($mypre->offer_id)."<br />";
@@ -921,7 +921,7 @@ $("#addrecord").click(function(){
                         <input type="text" class="form-control" name="Applications[subject][]" value="" required="true"/>
                     </td>
                     <td> 
-                        <input type="date" id="date" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
+                        <input type="text" id="date" name="Applications[passing_year][]" class="form-control" value="" required="true"/>
                     </td>
                     <td>
                         <select class="form-control" name="Applications[attempt][]" required="true">
@@ -958,6 +958,21 @@ $("#addrecord").click(function(){
    
    
     $("table").append(row);      // Append the new elements
+    
+                  var date_input=$('input[id="date"]'); //our date input has the name "date"
+                  var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+                  var options={
+                    format: 'yyyy-mm-dd',
+                    container: container,
+                    todayHighlight: true,
+                    autoclose: true,
+                  };
+                  date_input.datepicker({
+                       format: " yyyy",
+                        viewMode: "years", 
+                        minViewMode: "years"
+                  });
+               
    return false;
 });
 
@@ -981,7 +996,7 @@ document.getElementById("files").onchange = function () {
            if(ext=='jpg' || ext=='jpeg,' || ext=='gif' || ext=='png'){
 //               alert("Not a Valid Image")
            }else{
-                alert("Not a Valid Image222");
+                alert("Not a Valid Image");
                 $("#files").addClass('error');
               $("#files").val(''); 
               $("#files").css({ 'display': 'inline-block' });

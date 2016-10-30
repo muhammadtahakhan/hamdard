@@ -394,7 +394,7 @@ class ApplicationsController extends Controller
 //                        print_r($model->boarduni);
                          
                          $record = new AcademicRecords();
-//                         $record->qualification=$model->qualification[$x];
+                         $record->qualification=$model->qualification[$x];
                          $record->subject= $model->subject[$x];
                          $record->passing_year=$model->passing_year[$x];
                          $record->attemps= $model->attempt[$x];
